@@ -1,0 +1,21 @@
+✅ Hacer que los personajes vayan para atras al ser golpeados o morir
+✅ Arreglar hitbox
+✅ Hacer que spawneen bien en cada ronda y con saltando activado
+✅ Arreglar logica de ganador de partida
+
+- Agregar fondo
+
+✅ Hacer que el shokeado solo ocurra si tiene poca vida
+✅ Esperar a que termine la animacion de caida o muerte para aparecer la pantalla negra de victoria
+- Comparar tamaños de los personajes y/o con el fondo
+✅ Hacer que mientras está shockeado no pueda moverse ni atacar
+- Que la hitbox aparezca solo despues de X animacion de ataque
+- Cambiar botones de ataque(y sin numpad)
+- Mejorar los botones visibles del juego
+- Arreglar menu para que sea responsive(creo que lo hice recien)
+- Traducir todo a español
+arreglada la logica de combate, para que no ocurra la ronda 3 si un jugador ya ha ganado 2 rondas, ya que antes el que ganara la tercera ronda ganaba si o si
+-y ponele las flags, no hablo de booleanos por si acaso
+
+- Menu error
+- Correr y atacar error

@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "C:/Program Files/CodeBlocks/MinGW/bin/g++.exe",
+      "args": [
+        "main.cpp",                           // compila todos los .cpp del proyecto
+        "funciones.cpp",
+        "jugador.cpp",
+        "parallax_prueba.cpp",
+        "-o", "bin/Debug/pruebaSfml.exe",  // el ejecutable se guarda en bin/Debug
+        "-ISFML/include",                  // headers de SFML
+        "-LSFML/lib",                      // librerías de SFML
+        "-lsfml-graphics",
+        "-lsfml-window",
+        "-lsfml-system",
+        "-lsfml-audio"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}

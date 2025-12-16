@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="World Fight" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/pruebaSfml" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="SFML/include" />
+				</Compiler>
+				<Linker>
+					<Add library="sfml-window" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-system" />
+					<Add library="sfml-audio" />
+					<Add directory="SFML/lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/pruebaSfml" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++17" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="SFML/include" />
+		</Compiler>
+		<Linker>
+			<Add library="sfml-graphics" />
+			<Add library="sfml-window" />
+			<Add library="sfml-system" />
+			<Add directory="SFML/lib" />
+		</Linker>
+		<Unit filename="Archivo.cpp" />
+		<Unit filename="Archivo.h" />
+		<Unit filename="BarraDeVida.cpp" />
+		<Unit filename="BarraDeVida.h" />
+		<Unit filename="Combate.cpp" />
+		<Unit filename="Combate.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Instrucciones.cpp" />
+		<Unit filename="Instrucciones.h" />
+		<Unit filename="Juego.cpp" />
+		<Unit filename="Juego.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Jugador.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="JugadorData.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="MaquinaDeEstados.cpp" />
+		<Unit filename="MaquinaDeEstados.h" />
+		<Unit filename="Objeto.cpp" />
+		<Unit filename="Objeto.h" />
+		<Unit filename="ParametroSprites.cpp" />
+		<Unit filename="ParametroSprites.h" />
+		<Unit filename="Reloj.cpp" />
+		<Unit filename="Reloj.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="RutasSprites.cpp" />
+		<Unit filename="RutasSprites.h" />
+		<Unit filename="box.cpp" />
+		<Unit filename="box.h" />
+		<Unit filename="cosas para hacer">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="fondo.cpp" />
+		<Unit filename="fondo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="fondo_combate.cpp" />
+		<Unit filename="fondo_combate.h" />
+		<Unit filename="jugador.cpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="menu.cpp" />
+		<Unit filename="menu.h" />
+		<Unit filename="seleccion.cpp" />
+		<Unit filename="seleccion.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
