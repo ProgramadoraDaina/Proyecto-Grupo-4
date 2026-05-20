@@ -3,6 +3,7 @@ let gastos = [];
 let metaAhorro = 0;
 
 function calcularTiempoMeta() {
+
     let resultado = document.getElementById("resultadoSim");
 
     let ing = ingresosMensuales();
@@ -19,9 +20,23 @@ function calcularTiempoMeta() {
         return;
     }
 
-    let meses = Math.ceil(metaAhorro / ahorroMensual);
+    let acumulado = 0;
+    let meses = 0;
+
+    let datos = [];
+    let etiquetas = [];
+
+    while (acumulado < metaAhorro) {
+        acumulado += ahorroMensual;
+        meses++;
+
+        datos.push(acumulado);
+        etiquetas.push("Month " + meses);
+    }
 
     resultado.textContent = `Estimated time: ${meses} months`;
+
+    console.log(datos, etiquetas);
 }
 
 function calcularTiempoMeta() {
