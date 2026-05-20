@@ -6,3 +6,8 @@ function agregarMovimiento() {
 
     lista.innerHTML += `<p>${tipo} - $${monto}</p>`;
 }
+
+function calcularTiempoMeta() {
+    let resultado = document.getElementById("resultadoSim");
+    resultado.textContent = "Calculando...";
+}
