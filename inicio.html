@@ -1,94 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <title>MiniFinance - Inicio</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="layout">
+<div class="layout">
 
-        <!-- SIDEBAR -->
-        <aside class="sidebar">
-            <h2>MiniFinance</h2>
-
+    <!-- 🔹 SIDEBAR -->
+    <aside class="sidebar">
+        <h1>MiniFinance</h1>
+            <!-- Navegación -->
             <nav>
                 <ul>
                     <li><a href="inicio.html">Inicio</a></li>
                     <li><a href="simulador.html">Simulador</a></li>
                 </ul>
             </nav>
+        <hr>
+    <section>
+        <h3>Meta</h3>
+        <input type="number" id="metaInput" placeholder="Meta">
+        <button onclick="guardarMeta()">Guardar</button>
 
-            <hr>
+        <p id="metaTexto">$0</p>
+    </section>
+    </aside>
 
-            <section>
-                <h3>Meta</h3>
-                <input type="number" placeholder="Meta">
-                <button>Guardar</button>
-                <p>$0</p>
-            </section>
-        </aside>
+    <!-- 🔹 MAIN -->
+    <main> 
+    <!-- Encabezado -->
+        <header>
+            <h2>Datos Financieros</h2>
+        </header>
+    <!-- Datos financieros -->
+        <section>
+            <p>Ingresos: $<span id="ingresos">0</span></p>
+            <p>Gastos: $<span id="gastos">0</span></p>
+            <p>Saldo: $<span id="saldo">0</span></p>
 
-        <!-- MAIN -->
-        <main>
-            <header>
-                <h1>Dashboard</h1>
-            </header>
+        <div id="alertas"></div>
+        </section>
+     <hr>
 
-            <!-- Resumen (sin lógica todavía) -->
-            <section>
-                <h2>Resumen</h2>
-                <p>Ingresos: $0</p>
-                <p>Gastos: $0</p>
-                <p>Saldo: $0</p>
-            </section>
+<div class="contenedor-movimientos">
 
-            <hr>
+    <!-- 🔹 IZQUIERDA: FORMULARIO -->
+    <section class="panel">
+        <h2>Agregar movimiento</h2>
 
-            <!-- 🔥 LO IMPORTANTE: DOS COLUMNAS -->
-            <div class="contenedor-movimientos">
+        <form onsubmit="agregarMovimiento(); return false;">
+            <label>Tipo:</label>
+            <select id="tipo">
+                <option value="ingreso">Ingreso</option>
+                <option value="gasto">Gasto</option>
+            </select>
 
-                <!-- IZQUIERDA -->
-                <section class="panel">
-                    <h2>Agregar movimiento</h2>
+            <label>Monto:</label>
+            <input type="number" id="monto" placeholder="Monto">
 
-                    <form onsubmit="agregarMovimiento(); return false;">
+            <label>Categoría:</label>
+            <select id="categoria">
+                <option>Sueldo</option>
+                <option>Comida</option>
+                <option>Transporte</option>
+                <option>Regalos</option>
+                <option>Ocio</option>
+            </select>
 
-                        <label>Tipo:</label>
-                        <select id="tipo">
-                            <option value="Ingreso">Ingreso</option>
-                            <option value="Gasto">Gasto</option>
-                        </select>
+            <label>Frecuencia:</label>
+            <select id="frecuencia">
+                <option value="unico">Una vez</option>
+                <option value="mensual">Mensual</option>
+                <option value="semanal">Semanal</option>
+            </select>
 
-                        <label>Monto:</label>
-                        <input type="number" id="monto" placeholder="Monto">
+            <button type="submit">Agregar</button>
+        </form>
+    </section>
 
-                        <label>Frecuencia:</label>
-                        <select id="frecuencia">
-                            <option value="unico">Una vez</option>
-                            <option value="mensual">Mensual</option>
-                            <option value="semanal">Semanal</option>
-                        </select>
-                        
-                        <button type="submit">Agregar</button>
-                    </form>
-                </section>
+    <!-- 🔹 DERECHA: MOVIMIENTOS -->
+    <section class="panel">
+        <h2>Movimientos recientes</h2>
+        <div id="listaMovimientos"></div>
+    </section>
 
-                <!-- DERECHA -->
-                <section class="panel">
-                    <h2>Movimientos recientes</h2>
-                    <div id="listaMovimientos"></div>
-                </section>
-
-            </div>
-        </main>
-
-    </div>
-
-    <script src="main.js"></script>
+</div>
+    </main>
+</div>
+<script src="main.js"></script>
 </body>
-
 </html>

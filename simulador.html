@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>MiniFinance - Simulador</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="layout">
+    <div class="layout">
 
-    <!-- 🔹 SIDEBAR -->
-    <aside class="sidebar">
-        <h2>MiniFinance</h2>
-    <!-- Navegación -->
-        <nav>
-            <ul>
-                <li><a href="inicio.html">Inicio</a></li>
-                <li><a href="simulador.html">Simulador</a></li>
-            </ul>
-        </nav>
-    </aside>
-    
-<main>
-    <h1>Simulador</h1>
+        <!-- 🔹 SIDEBAR -->
+        <aside class="sidebar">
+            <h2>MiniFinance</h2>
+            <!-- Navegación -->
+            <nav>
+                <ul>
+                    <li><a href="inicio.html">Inicio</a></li>
+                    <li><a href="simulador.html">Simulador</a></li>
+                </ul>
+            </nav>
+            <hr>
+            <!-- Meta -->
+            <section>
 
-    <section>
-        <button onclick="calcularTiempoMeta()">Calcular estimación</button>
-        <p id="resultadoSim">Sin cálculo</p>
-    </section>
-</main>
+                <h3>Meta</h3>
+                <input type="number" id="metaInput" placeholder="Meta">
+                <button onclick="guardarMeta()">Guardar</button>
 
-</div>
-<script src="main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <p id="metaTexto">$0</p>
+            </section>
+
+        </aside>
+
+        <main>
+            <header>
+                <h1>Simulador</h1>
+            </header>
+            <!-- Acciones del simulador -->
+            <section>
+                <h2>Control</h2>
+
+                <button onclick="calcularTiempoMeta()">
+                    Calcular estimación
+                </button>
+                <button onclick="borrarTodo()">🗑️ Resetear datos</button>
+
+                <p id="resultadoSim">Sin cálculo</p>
+            </section>
+
+            <figure>
+                <canvas id="grafico" width="400" height="200"></canvas>
+                <figcaption>Evolución del ahorro en el tiempo</figcaption>
+            </figure>
+        </main>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="main.js"></script>
 
 </body>
+
 </html>
