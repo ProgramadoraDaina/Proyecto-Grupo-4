@@ -18,22 +18,61 @@ export function dibujarGrafico(labels, data) {
         data: {
             labels: labels,/*Define las etiquetas del eje X (Mes 1, Mes 2, etc.)*/
             datasets: [{
-                label: "Ahorro acumulado",/*Nombre de la serie de datos (aparece en la leyenda)*/
+                label: "Ahorro acumulado",
+                data: data,
+                borderColor: "#22c55e", // verde fintech
+                backgroundColor: "rgba(34, 197, 94, 0.15)", // relleno suave
+                borderWidth: 4,
+                tension: 0.1,
 
-                data: data,/*Datos numéricos (valores del ahorro mes a mes)*/
-
-                borderColor: "cyan",
-                backgroundColor: "rgba(255, 255, 255, 0)",
-                borderWidth: 2,
-                tension: 0.2
+                pointBackgroundColor: "#22c55e",
+                pointBorderColor: "#ffffff",
+                pointRadius: 7,
+                pointHoverRadius: 6,
+                fill: true
             }]
         },
+
         options: {
+            responsive: true,
+
+            plugins: {
+                legend: {
+                    labels: {
+                        color: "#e5e7eb" // color del texto de la leyenda
+                    }
+                }
+            },
+
             scales: {
+                x: {
+                    ticks: {
+                        color: "#ffffff" // color eje X
+                    },
+                    grid: {
+                        color: "#22c55e38" // líneas suaves
+                    }
+                },
                 y: {
-                    beginAtZero: true/*Hace que el eje Y comience desde 0*/
+                    beginAtZero: true,
+                    ticks: {
+                        color: "#9ca3af"
+                    },
+                    grid: {
+                        color: "#22c55e38"
+                    }
+                }
+            },
+            animations: {
+                
+                x: {
+                    duration: 1800
+                },
+                y: {
+                    duration: 2500
                 }
             }
         }
-    });
+    }
+    );
 }

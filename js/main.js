@@ -11,4 +11,17 @@ window.calcularTiempoMeta = function () {
 
     mostrarResultado(resultado.resultado);
     dibujarGrafico(resultado.etiquetas, resultado.datos);
+    
+// ✅ ACTUALIZAR CARDS
+    document.getElementById("ingresosCard").textContent = "$" + resultado.ingresos;
+    document.getElementById("gastosCard").textContent = "$" + resultado.gastos;
+    document.getElementById("ahorroCard").textContent = "$" + resultado.ahorroMensual;
+
+    // ✅ Calcular tasa
+    let tasa = 0;
+    if (resultado.ingresos > 0) {
+        tasa = ((resultado.ahorroMensual / resultado.ingresos) * 100).toFixed(1);
+    }
+
+    document.getElementById("tasaCard").textContent = tasa + "%";
 };

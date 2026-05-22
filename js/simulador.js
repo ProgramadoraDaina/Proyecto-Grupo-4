@@ -11,8 +11,11 @@ export function calcularTiempoMeta(finanzas) {
         return {
             modoPrueba: true,
             resultado: "Modo prueba (sin datos reales)",
-            etiquetas: ["Mes 1", "Mes 2", "Mes 3", "Mes 4", "Mes 5"],
-            datos: [100, 250, 400, 650, 900]
+            etiquetas: ["Mes 1", "Mes 2", "Mes 3", "Mes 4", "Mes 5", "Mes 6", "Mes 7"],
+            datos: [10000, 25000, 40000, 65000, 80000, 95000,105000],      
+            ingresos: 100000,
+            gastos: 28000,
+            ahorroMensual: 72000
         };
     }
 
@@ -33,6 +36,11 @@ export function calcularTiempoMeta(finanzas) {
         modoPrueba: false,
         resultado: `Estimated time: ${meses} months`,
         etiquetas,
-        datos: ahorroPorMes
+        datos: ahorroPorMes,
+        
+    ingresos: ing,
+    gastos: gas,
+    ahorroMensual: ahorroMensual
+
     };
 }

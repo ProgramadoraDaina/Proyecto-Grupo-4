@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <title>MiniFinance - Simulador</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resources/style.css">
+    <link rel="stylesheet" href="resources/simulador.css">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
         <!-- 🔹 SIDEBAR -->
         <aside class="sidebar">
-            <h2>MiniFinance</h2>
+            <h1>MiniFinance</h1>
             <!-- Navegación -->
             <nav>
                 <ul>
@@ -25,7 +25,7 @@
             <!-- Meta -->
             <section>
 
-                <h3>Meta</h3>
+                <h2>Meta</h2>
                 <input type="number" id="metaInput" placeholder="Meta">
                 <button onclick="guardarMeta()">Guardar</button>
 
@@ -36,8 +36,46 @@
 
         <main>
             <header>
-                <h1>Simulador</h1>
+                <h2>Simulador de Ahorro</h2>
             </header>
+            <div class="stats">
+
+  <div class="card display-card ingresos">
+    <div class="icono-ingresos"></div>
+    <div>
+    <p>Ingresos mensuales</p>
+    <h3 id="ingresosCard">$0</h3>
+    </div>
+  </div>
+
+  <div class="card display-card gastos">
+    <div class="icono-gastos"></div>
+    <div>
+    <p>Gastos mensuales</p>
+    <h3 id="gastosCard">$0</h3>
+    </div>
+  </div>
+
+<div class="card display-card ahorro">
+  <div class="icono-ahorro"></div>
+  <div>
+    <p>Ahorro mensual</p>
+    <h3 id="ahorroCard">$0</h3>
+    </div>
+  </div>
+
+  
+<div class="card display-card tasa">
+  <div class="icono-tasa"></div>
+  <div>
+    <p>Tasa de ahorro</p>
+    <h3 id="tasaCard">0%</h3>
+    </div>
+</div>
+
+
+</div>
+
             <!-- Acciones del simulador -->
             <section>
                 <h2>Control</h2>
@@ -47,7 +85,7 @@
                 </button>
                 <button onclick="borrarTodo()">🗑️ Resetear datos</button>
 
-                <p id="resultadoSim">Sin cálculo</p>
+                <p id="resultadoSim"></p>
             </section>
 
             <figure>
@@ -55,7 +93,6 @@
                 <figcaption>Evolución del ahorro en el tiempo</figcaption>
             </figure>
         </main>
-
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="js/main.js"></script>
