@@ -59,9 +59,17 @@ button:hover {
   color: black;
 }
 
-/* Títulos más lindos */
-h2 {
+header h2 {
+  font-size: 26px;
+  font-weight: 600;
   color: #4ade80;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
-
+.descripcion {
+  color: #b0b3b8;       /* gris suave tipo app */
+  font-size: 15px;      
+  margin-top: 6px;         
+  line-height: 1.4;     
+}

@@ -11,11 +11,13 @@ window.calcularTiempoMeta = function () {
 
     mostrarResultado(resultado.resultado);
     dibujarGrafico(resultado.etiquetas, resultado.datos);
-    
-// ✅ ACTUALIZAR CARDS
-    document.getElementById("ingresosCard").textContent = "$" + resultado.ingresos;
-    document.getElementById("gastosCard").textContent = "$" + resultado.gastos;
-    document.getElementById("ahorroCard").textContent = "$" + resultado.ahorroMensual;
+
+    // ✅ ACTUALIZAR CARDS
+    document.getElementById("ingresosCard").textContent ="$" + formatearNumero(resultado.ingresos);
+
+    document.getElementById("gastosCard").textContent ="$" + formatearNumero(resultado.gastos);
+
+    document.getElementById("ahorroCard").textContent ="$" + formatearNumero(resultado.ahorroMensual);
 
     // ✅ Calcular tasa
     let tasa = 0;
@@ -25,3 +27,6 @@ window.calcularTiempoMeta = function () {
 
     document.getElementById("tasaCard").textContent = tasa + "%";
 };
+function formatearNumero(numero) {
+    return numero.toLocaleString("es-AR");
+}

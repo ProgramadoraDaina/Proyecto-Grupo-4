@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>MiniFinance - Simulador</title>
     <link rel="stylesheet" href="resources/style.css">
     <link rel="stylesheet" href="resources/simulador.css">
+    <link rel="stylesheet" href="resources/cards.css">
+    <link rel="stylesheet" href="resources/icono.css">
 </head>
 
 <body>
@@ -36,49 +39,52 @@
 
         <main>
             <header>
-                <h2>Simulador de Ahorro</h2>
+                <h2 class="header h2">Simulador de Ahorro</h2>
+                <p class="descripcion">
+                    Calculá en cuántos meses vas a alcanzar tu meta según tu nivel de ahorro.
+                </p>
             </header>
             <div class="stats">
 
-  <div class="card display-card ingresos">
-    <div class="icono-ingresos"></div>
-    <div>
-    <p>Ingresos mensuales</p>
-    <h3 id="ingresosCard">$0</h3>
-    </div>
-  </div>
+                <div class="card display-card ingresos">
+                    <div class="icono icono-ingresos"></div>
+                    <div>
+                        <h3>Ingresos mensuales</h3>
+                        <p id="ingresosCard">$0</p>
+                    </div>
+                </div>
 
-  <div class="card display-card gastos">
-    <div class="icono-gastos"></div>
-    <div>
-    <p>Gastos mensuales</p>
-    <h3 id="gastosCard">$0</h3>
-    </div>
-  </div>
+                <div class="card display-card gastos">
+                    <div class="icono icono-gastos"></div>
+                    <div>
+                        <h3>Gastos mensuales</h3>
+                        <p id="gastosCard">$0</p>
+                    </div>
+                </div>
 
-<div class="card display-card ahorro">
-  <div class="icono-ahorro"></div>
-  <div>
-    <p>Ahorro mensual</p>
-    <h3 id="ahorroCard">$0</h3>
-    </div>
-  </div>
-
-  
-<div class="card display-card tasa">
-  <div class="icono-tasa"></div>
-  <div>
-    <p>Tasa de ahorro</p>
-    <h3 id="tasaCard">0%</h3>
-    </div>
-</div>
+                <div class="card display-card ahorro">
+                    <div class="icono icono-ahorro"></div>
+                    <div>
+                        <h3>Ahorro mensual</h3>
+                        <p id="ahorroCard">$0</p>
+                    </div>
+                </div>
 
 
-</div>
+                <div class="card display-card tasa">
+                    <div class="icono icono-tasa"></div>
+                    <div>
+                        <h3>Tasa de ahorro</h3>
+                        <p id="tasaCard">0%</p>
+                    </div>
+                </div>
+
+
+            </div>
 
             <!-- Acciones del simulador -->
             <section>
-                <h2>Control</h2>
+                <h2 class="subsection-title">Proyección de ahorro</h2>
 
                 <button onclick="calcularTiempoMeta()">
                     Calcular estimación

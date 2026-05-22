@@ -1,23 +1,17 @@
+
+.subsection-title {
+    font-size: 1.2rem;
+    color: #00ff9c;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
 .stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   margin: 20px 0;
-}
-
-.card {
-  height: 110px;
-  background: linear-gradient(145deg, #0f1c2e, #08121f);
-  padding: 7px;
-  border-radius: 12px;
-  border: 1px solid rgba(34, 197, 94, 0.25);
-  box-shadow: 0 0 10px rgba(34, 197, 94, 0.1);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
 }
 
 #resultadoSim {
@@ -34,77 +28,3 @@
 #resultadoSim:empty {
   display: none;
 }
-
-.display-card {
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  align-items: center;
-  gap: 15px;
-}
-
-.icono-tasa {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-
-  background-image:
-    url("img/tasa.png"),
-    radial-gradient(circle, #1f2937, #be1aff);
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50px, cover;
-}
-
-.icono-ahorro {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-
-  background-image:
-    url("img/ahorro.png"),
-    radial-gradient(circle, #1f2937, #1e82fc);
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50px, cover;
-}
-
-.icono-gastos {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-
-  background-image:
-    url("img/gastos.png"),
-    radial-gradient(circle, #1f2937, #ff1d1d);
-
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50px, cover;
-}
-
-.icono-ingresos {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-
-  background-image:
-    url("img/ingresos.png"),
-    radial-gradient(circle, #1f2937, #22c55e);
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50px, cover;
-}
-/* números en blanco */
-.card h3 {
-  color: #ffffff;
-}
-
-/* títulos con color */
-.card.ingresos p { color: #4ade80; }
-.card.gastos p   { color: #f87171; }
-.card.ahorro p   { color: #60a5fa; }
-.card.tasa p     { color: #c084fc; }
