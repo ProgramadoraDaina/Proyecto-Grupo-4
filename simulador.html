@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiniFinance - Simulador</title>
     <link rel="stylesheet" href="resources/style.css">
     <link rel="stylesheet" href="resources/simulador.css">
     <link rel="stylesheet" href="resources/cards.css">
     <link rel="stylesheet" href="resources/icono.css">
+    <link rel="stylesheet" href="resources/sidebar.css">
 </head>
 
 <body>
@@ -15,7 +17,7 @@
     <div class="layout">
 
         <!-- 🔹 SIDEBAR -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <h1>MiniFinance</h1>
             <!-- Navegación -->
             <nav>
@@ -39,10 +41,13 @@
 
         <main>
             <header>
+                <div>
                 <h2 class="header h2">Simulador de Ahorro</h2>
-                <p class="descripcion">
-                    Calculá en cuántos meses vas a alcanzar tu meta según tu nivel de ahorro.
-                </p>
+                <p class="descripcion">Calcula en cuántos meses vas a alcanzar tu meta según tu nivel de ahorro.</p>
+                </div>
+                <div class="toggleButton" id="toggleButton">
+            <span class="line-Button"></span>
+            </div>
             </header>
             <div class="stats">
 
@@ -95,7 +100,7 @@
             </section>
 
             <figure>
-                <canvas id="grafico" width="400" height="200"></canvas>
+                <canvas id="grafico"></canvas>
                 <figcaption>Evolución del ahorro en el tiempo</figcaption>
             </figure>
         </main>

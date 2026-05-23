@@ -7,14 +7,18 @@ body {
     color:white;
     font-family:Arial;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
 .layout {
     display:flex;
 }
-.sidebar {
-    width:200px;
-    padding:20px;
-    background:#111;
-}
+
 main {
     flex:1;
     padding:20px;
@@ -72,4 +76,33 @@ header h2 {
   font-size: 15px;      
   margin-top: 6px;         
   line-height: 1.4;     
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+main {
+   
+ width: 100%;
+    max-width: 100%;
+    margin: 0;
+
+}
+
+input, button, canvas {
+    max-width: 100%;
+}
+
+.display-card {
+    min-width: 0;
+}
+
+.layout {
+    width: 100%;
+    max-width: 100%;
 }

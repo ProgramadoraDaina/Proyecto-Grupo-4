@@ -1,5 +1,5 @@
 .card {
-  height: 110px;
+  min-height: 110px;
   background: linear-gradient(145deg, #0f1c2e, #08121f);
   padding: 7px;
   border-radius: 12px;

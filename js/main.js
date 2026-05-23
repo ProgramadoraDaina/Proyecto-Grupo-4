@@ -30,3 +30,17 @@ window.calcularTiempoMeta = function () {
 function formatearNumero(numero) {
     return numero.toLocaleString("es-AR");
 }
+
+document.getElementById('toggleButton')
+.addEventListener('click', function(){
+    toggleEvents(document.getElementById('sidebar'), document.getElementById('toggleButton'))
+});
+let toggleEvents = function(node, button){
+    if(node.classList.contains('showed')){
+        node.classList.remove('showed');
+        button.classList.remove('active');
+    } else {
+        node.classList.add('showed');
+        button.classList.add('active');
+    }
+}
