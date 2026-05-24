@@ -34,7 +34,7 @@ export function calcularTiempoMeta(finanzas) {
 
     return {/*Retorna un objeto con el resultado de la simulación*/
         modoPrueba: false,
-        resultado: `Estimated time: ${meses} months`,
+        resultado: `Tiempo estimado: ${meses} meses`,
         etiquetas,
         datos: ahorroPorMes,
         

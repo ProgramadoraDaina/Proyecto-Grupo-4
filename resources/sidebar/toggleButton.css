@@ -1,6 +1,5 @@
 .toggleButton {
-  margin-left: auto;
-  /* empuja el botón hacia la derecha */
+  margin-left: auto;/* empuja el botón hacia la derecha */
 }
 
 @media (max-width:768px) {

@@ -7,7 +7,9 @@ export function actualizarCards(resultado) {
 
     let tasa = 0;
     if (resultado.ingresos > 0) {
-        tasa = ((resultado.ahorroMensual / resultado.ingresos) * 100).toFixed(1);
+        tasa = ((resultado.ahorroMensual / resultado.ingresos) * 100).toFixed(1);/*Divide el ahorro por los
+                                                                                  ingresos, lo convierte a
+                                                                                porcentaje y deja 1 decimal*/
     }
 
     document.getElementById("tasaCard").textContent = tasa + "%";

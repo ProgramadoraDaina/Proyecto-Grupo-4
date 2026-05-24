@@ -4,6 +4,10 @@
   margin: 20px auto;
 }
 
+.oculto {
+  display: none;
+}
+
 .chart-container canvas {
   width: 100%;
   height: auto;

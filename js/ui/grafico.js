@@ -1,6 +1,6 @@
 let grafico = null;/*Variable para almacenar el gráfico actual*/
 
-export function mostrarResultado(texto) {/*Función que recibe un texto y muestra cuánto tiempo falta
+export function mostrarTiempoEstimado(texto) {/*Función que recibe un texto y muestra cuánto tiempo falta
                                          para completar la meta*/
     document.getElementById("resultadoSim").textContent = texto;
 }
