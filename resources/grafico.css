@@ -1,0 +1,28 @@
+.chart-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 20px auto;
+}
+
+.chart-container canvas {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  display: block;
+}
+
+.chart-container figcaption {
+  text-align: center;
+  color: #b0b3b8;
+  font-size: 14px;
+  margin-top: 8px;
+}
+@media (max-width: 768px){
+      .chart-container {
+    max-width: 100%;
+  }
+
+  .chart-container canvas {
+    max-height: 250px;
+  }
+}

@@ -1,46 +1,22 @@
-import { Finanzas } from "./estado.js";
-import { calcularTiempoMeta } from "./simulador.js";
-import { mostrarResultado, dibujarGrafico } from "./grafico.js";
+import { Finanzas } from "./Finanzas.js";
+import { calcularTiempoMeta } from "./logica/simulador.js";
+import { mostrarResultado, dibujarGrafico } from "./ui/grafico.js";
 
-const finanzas = new Finanzas();/*Se crea una instancia de la clase Finanzas para manejar los ingresos,
-                                gastos y meta de ahorro*/
+import { actualizarCards } from "./ui/cards.js";
+import { inicializarSidebar, resaltarLinkActivo } from "./ui/sidebar.js";
 
+const finanzas = new Finanzas();
+
+// Función global (si la usás desde HTML)
 window.calcularTiempoMeta = function () {
-    const resultado = calcularTiempoMeta(finanzas);/*Se calcula el tiempo necesario para alcanzar la
-                                                    meta de ahorro*/
+    const resultado = calcularTiempoMeta(finanzas);
 
     mostrarResultado(resultado.resultado);
     dibujarGrafico(resultado.etiquetas, resultado.datos);
 
-    // ✅ ACTUALIZAR CARDS
-    document.getElementById("ingresosCard").textContent ="$" + formatearNumero(resultado.ingresos);
-
-    document.getElementById("gastosCard").textContent ="$" + formatearNumero(resultado.gastos);
-
-    document.getElementById("ahorroCard").textContent ="$" + formatearNumero(resultado.ahorroMensual);
-
-    // ✅ Calcular tasa
-    let tasa = 0;
-    if (resultado.ingresos > 0) {
-        tasa = ((resultado.ahorroMensual / resultado.ingresos) * 100).toFixed(1);
-    }
-
-    document.getElementById("tasaCard").textContent = tasa + "%";
+    actualizarCards(resultado);
 };
-function formatearNumero(numero) {
-    return numero.toLocaleString("es-AR");
-}
 
-document.getElementById('toggleButton')
-.addEventListener('click', function(){
-    toggleEvents(document.getElementById('sidebar'), document.getElementById('toggleButton'))
-});
-let toggleEvents = function(node, button){
-    if(node.classList.contains('showed')){
-        node.classList.remove('showed');
-        button.classList.remove('active');
-    } else {
-        node.classList.add('showed');
-        button.classList.add('active');
-    }
-}
+// Inicializaciones
+inicializarSidebar();
+resaltarLinkActivo();
