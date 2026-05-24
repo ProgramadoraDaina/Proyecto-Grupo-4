@@ -19,7 +19,9 @@
         <!-- 🔹 SIDEBAR -->
         <aside class="sidebar" id="sidebar">
             <div class="logo">
-                <h1>MiniFinance</h1>
+                <h1>
+                    <span class="mini">Mini</span><span class="finance">Finance</span>
+                </h1>
             </div>
             <!-- Navegación -->
             <nav>
@@ -102,8 +104,6 @@
                 <button onclick="calcularTiempoMeta()">
                     Calcular estimación
                 </button>
-                <button onclick="borrarTodo()">🗑️ Resetear datos</button>
-
                 <p id="resultadoSim"></p>
             </section>
 
@@ -111,7 +111,6 @@
                 <canvas id="grafico"></canvas>
                 <figcaption>Evolución del ahorro en el tiempo</figcaption>
             </figure>
-        </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="js/main.js"></script>

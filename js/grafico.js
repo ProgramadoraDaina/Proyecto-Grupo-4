@@ -35,7 +35,7 @@ export function dibujarGrafico(labels, data) {
 
         options: {
             responsive: true,
-
+            maintainAspectRatio: false,
             plugins: {
                 legend: {
                     labels: {
