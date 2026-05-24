@@ -1,9 +1,60 @@
 .sidebar {
-    width:200px;
+    width:260px;
+    /*height: 100vh;*/
     padding:20px;
-    background:#111;
+    background: linear-gradient(180deg, #020617, #020b1a 60%, #020617);
+    color: white;
     top:0;
 }
+
+/* 🔹 Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+/* 🔹 Imagen */
+.logo::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 40px;
+  background-image: url("img/logo.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.logo .icon {
+  font-size: 28px;
+  color: #22c55e;
+}
+
+.logo h1 {
+  font-size: 30px;
+  font-weight: bold;
+  transform: translateY(3px);
+}
+aside ul{
+  list-style-type: none;
+}
+aside ul li {
+  display:block;
+}
+aside ul li a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration:none;
+  text-align:center;
+  gap: 15px;
+  display:block;
+  padding:12px 15px;
+  border-radius: 5px;
+  transition: all 0.4s ease;
+  letter-spacing:1px;
+}
+
 .toggleButton {
   margin-left: auto; /* empuja el botón hacia la derecha */
 }
@@ -43,7 +94,6 @@ header .toggleButton .line-Button::after {
   bottom:-5px;
 }
 aside{
-  background-color:#3625BA;
   width:300px;
   height:100vh;
   z-index:100;
@@ -54,22 +104,5 @@ aside{
 }
 aside.showed {
   left:0;
-}
-aside ul{
-  list-style-type: none;
-  padding: 20px;
-}
-aside ul li {
-  display:block;
-}
-aside ul li a {
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration:none;
-  text-align:center;
-  display:block;
-  padding:15px 20px;
-  border-radius: 5px;
-  transition: all 0.4s ease;
-  letter-spacing:1px;
 }
 }
