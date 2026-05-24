@@ -37,24 +37,45 @@
   font-weight: bold;
   transform: translateY(3px);
 }
+.icono-simulador {
+  width: 35px;
+  height: 35px;
+  background-image: url("img/simulador.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.icono-inicio,
+.icono-simulador {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
 aside ul{
   list-style-type: none;
 }
 aside ul li {
+  margin: 8px 0;
   display:block;
 }
 aside ul li a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration:none;
-  text-align:center;
-  gap: 15px;
-  display:block;
-  padding:12px 15px;
-  border-radius: 5px;
+  align-items:center;
+  gap: 12px;
+  display:flex;
+  padding:14px 16px;
+  border-radius: 12px;
   transition: all 0.4s ease;
   letter-spacing:1px;
 }
-
+aside ul li a.active {
+  border: 1px solid #22c55e;
+  color: #22c55e;
+}
+aside ul li a:hover {
+  background: #22c55e;
+  color: black;
+}
 .toggleButton {
   margin-left: auto; /* empuja el botón hacia la derecha */
 }
