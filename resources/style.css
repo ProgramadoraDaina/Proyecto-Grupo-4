@@ -73,3 +73,108 @@ header h2 {
   margin-top: 6px;         
   line-height: 1.4;     
 }
+
+/* =========================
+   FORMULARIO MODERNO
+========================= */
+
+.panel h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: white;
+}
+
+/* formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* labels */
+form label {
+  font-size: 14px;
+  color: #b0b3b8;
+  margin-bottom: -8px;
+}
+
+/* inputs y selects */
+form input,
+form select {
+  background: #131f33;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 14px;
+  color: white;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+/* focus */
+form input:focus,
+form select:focus {
+  outline: none;
+  border: 1px solid #22c55e;
+  box-shadow: 0 0 8px rgba(34,197,94,0.3);
+}
+
+/* placeholder */
+form input::placeholder {
+  color: #64748b;
+}
+
+/* botón principal */
+form button {
+  margin-top: 10px;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* hover botón */
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(34,197,94,0.4);
+}
+
+/* panel más parecido a app mobile */
+.panel {
+  background: linear-gradient(180deg, #0f172a, #0b1220);
+  border-radius: 22px;
+  padding: 25px;
+}
+
+/* contenedor */
+.contenedor-movimientos {
+  align-items: flex-start;
+}
+
+.tipo-toggle {
+  display: flex;
+  background: #131f33;
+  border-radius: 14px;
+  padding: 5px;
+  gap: 5px;
+}
+
+.tipo-toggle button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* estado activo */
+.tipo-toggle .activo {
+  background: #22c55e;
+  color: white;
+}
