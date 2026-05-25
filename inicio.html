@@ -53,10 +53,25 @@
 
         <form onsubmit="agregarMovimiento(); return false;">
             <label>Tipo:</label>
-            <select id="tipo">
-                <option value="ingreso">Ingreso</option>
-                <option value="gasto">Gasto</option>
-            </select>
+            <div class="tipo-toggle">
+
+    <button 
+        type="button" 
+        class="activo" 
+        id="btnIngreso">
+        Ingreso
+    </button>
+
+    <button 
+        type="button" 
+        id="btnGasto">
+        Gasto
+    </button>
+
+</div>
+
+<input type="hidden" id="tipo" value="ingreso">
+
 
             <label>Monto:</label>
             <input type="number" id="monto" placeholder="Monto">
