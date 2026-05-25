@@ -2,6 +2,28 @@ import { Finanzas } from "./estado.js";
 import { calcularTiempoMeta } from "./simulador.js";
 import { mostrarResultado, dibujarGrafico } from "./grafico.js";
 
+const btnIngreso = document.getElementById("btnIngreso");
+const btnGasto = document.getElementById("btnGasto");
+const tipoInput = document.getElementById("tipo");
+
+btnIngreso.addEventListener("click", () => {
+
+    tipoInput.value = "ingreso";
+
+    btnIngreso.classList.add("activo");
+    btnGasto.classList.remove("activo");
+
+});
+
+btnGasto.addEventListener("click", () => {
+
+    tipoInput.value = "gasto";
+
+    btnGasto.classList.add("activo");
+    btnIngreso.classList.remove("activo");
+
+});
+
 const finanzas = new Finanzas();/*Se crea una instancia de la clase Finanzas para manejar los ingresos,
                                 gastos y meta de ahorro*/
 
