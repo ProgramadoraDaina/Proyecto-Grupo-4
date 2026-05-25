@@ -4,11 +4,15 @@ main {
   width: 0;
   flex: 1;
   margin: 0;
+  padding-bottom:0;
 }
 
 body {
+  display: flex;
   background: #0c1220;
   color: white;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: Arial;
   margin: 0;
   overflow-x: hidden;
