@@ -1,118 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiniFinance - Inicio</title>
-    <link rel="stylesheet" href="resources/style.css">
-    <link rel="stylesheet" href="resources/sidebar/sidebar.css">
-    <link rel="stylesheet" href="resources/sidebar/logo.css">
-    <link rel="stylesheet" href="resources/sidebar/icono-sidebar.css">
-    <link rel="stylesheet" href="resources/sidebar/toggleButton.css">
-    <link rel="stylesheet" href="resources/footer.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="layout">
 
-        <!-- 🔹 SIDEBAR -->
-        <aside class="sidebar" id="sidebar">
-            <div class="logo">
-                <h1>
-                    <span class="mini">Mini</span><span class="finance">Finance</span>
-                </h1>
-            </div>
-            <!-- Navegación -->
-            <nav>
-                <ul>
-                    <li><a href="inicio.html">
-                            <span class="icono-inicio"></span>
-                            Inicio
-                        </a></li>
-                    <li><a href="simulador.html" class="active">
-                            <span class="icono-simulador"></span>
-                            Simulador
-                        </a></li>
-                </ul>
-            </nav>
-            <hr>
-            <!-- Meta -->
-            <section>
+<div class="layout">
 
-                <h2>Meta</h2>
-                <input type="number" id="metaInput" placeholder="Meta">
-                <button onclick="guardarMeta()">Guardar</button>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>MiniFinance</h2>
 
-                <p id="metaTexto">$0</p>
+        <nav>
+            <ul>
+                <li><a href="inicio.html">Inicio</a></li>
+                <li><a href="simulador.html">Simulador</a></li>
+            </ul>
+        </nav>
+
+        <hr>
+
+        <section>
+            <h3>Meta</h3>
+            <input type="number" placeholder="Meta">
+            <button>Guardar</button>
+            <p>$0</p>
+        </section>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+        <header>
+            <h1>Dashboard</h1>
+        </header>
+
+        <!-- Resumen (sin lógica todavía) -->
+        <section>
+            <h2>Resumen</h2>
+            <p>Ingresos: $0</p>
+            <p>Gastos: $0</p>
+            <p>Saldo: $0</p>
+        </section>
+
+        <hr>
+
+        <!-- 🔥 LO IMPORTANTE: DOS COLUMNAS -->
+        <div class="contenedor-movimientos">
+
+            <!-- IZQUIERDA -->
+            <section class="panel">
+                <h2>Agregar movimiento</h2>
+
+                <form onsubmit="agregarMovimiento(); return false;">
+                    
+                    <label>Tipo:</label>
+                    <select id="tipo">
+                        <option value="Ingreso">Ingreso</option>
+                        <option value="Gasto">Gasto</option>
+                    </select>
+
+                    <label>Monto:</label>
+                    <input type="number" id="monto" placeholder="Monto">
+
+                    <button type="submit">Agregar</button>
+                </form>
             </section>
 
-        </aside>
-        <!-- 🔹 MAIN -->
-        <main>
-            <!-- Encabezado -->
-            <header>
-                <h2>Datos Financieros</h2>
-                <div class="toggleButton" id="toggleButton">
-                    <span class="line-Button"></span>
-                </div>
-            </header>
-            <button onclick="borrarTodo()">🗑️ Resetear datos</button>
-            <!-- Datos financieros -->
-            <section>
-                <p>Ingresos: $<span id="ingresos">0</span></p>
-                <p>Gastos: $<span id="gastos">0</span></p>
-                <p>Saldo: $<span id="saldo">0</span></p>
-
-                <div id="alertas"></div>
+            <!-- DERECHA -->
+            <section class="panel">
+                <h2>Movimientos recientes</h2>
+                <div id="listaMovimientos"></div>
             </section>
-            <hr>
-            <div class="contenedor-movimientos">
 
-                <!-- 🔹 IZQUIERDA: FORMULARIO -->
-                <section class="panel">
-                    <h2>Agregar movimiento</h2>
+        </div>
+    </main>
 
-                    <form onsubmit="agregarMovimiento(); return false;">
-                        <label>Tipo:</label>
-                        <select id="tipo">
-                            <option value="ingreso">Ingreso</option>
-                            <option value="gasto">Gasto</option>
-                        </select>
+</div>
 
-                        <label>Monto:</label>
-                        <input type="number" id="monto" placeholder="Monto">
-
-                        <label>Categoría:</label>
-                        <select id="categoria">
-                            <option>Sueldo</option>
-                            <option>Comida</option>
-                            <option>Transporte</option>
-                            <option>Regalos</option>
-                            <option>Ocio</option>
-                        </select>
-
-                        <label>Frecuencia:</label>
-                        <select id="frecuencia">
-                            <option value="unico">Una vez</option>
-                            <option value="mensual">Mensual</option>
-                            <option value="semanal">Semanal</option>
-                        </select>
-
-                        <button type="submit">Agregar</button>
-                    </form>
-                </section>
-
-                <!-- 🔹 DERECHA: MOVIMIENTOS -->
-                <section class="panel">
-                    <h2>Movimientos recientes</h2>
-                    <div id="listaMovimientos"></div>
-                </section>
-
-            </div>
-        </main>
-    </div>
-    <script type="module" src="js/main.js"></script>
+<script src="main.js"></script>
 </body>
-
 </html>
