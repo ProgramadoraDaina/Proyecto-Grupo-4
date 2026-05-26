@@ -12,7 +12,21 @@ export function dibujarGrafico(labels, data) {
     if (grafico != null) {/*Si ya existe un gráfico, lo elimina antes de dibujar uno nuevo*/
         grafico.destroy();
     }
+const glowPointsPlugin = {
+    id: "glowPoints",
+    beforeDatasetDraw(chart, args, pluginOptions) {
+        const { ctx } = chart;
 
+        ctx.save();
+
+        ctx.shadowBlur = 15; // intensidad del brillo
+        ctx.shadowColor = "rgba(255, 255, 255, 0.8)"; // color del glow
+
+    },
+    afterDatasetDraw(chart) {
+        chart.ctx.restore();
+    }
+};
     grafico = new Chart(ctx, {
         type: "line",/*tipo de gráfico (línea)*/
         data: {
@@ -72,7 +86,8 @@ export function dibujarGrafico(labels, data) {
                     duration: 2500
                 }
             }
-        }
+        },
+        plugins: [glowPointsPlugin]
     }
     );
 }
