@@ -52,3 +52,78 @@ window.calcularTiempoMeta = function () {
 function formatearNumero(numero) {
     return numero.toLocaleString("es-AR");
 }
+
+window.agregarMovimiento = function () {
+
+    const tipo = document.getElementById("tipo").value;
+    const monto = Number(document.getElementById("monto").value);
+    const categoria = document.getElementById("categoria").value;
+    const frecuencia = document.getElementById("frecuencia").value;
+
+    // Validación
+    if (monto <= 0 || isNaN(monto)) {
+        alert("Ingresá un monto válido");
+        return;
+    }
+
+    // Crear objeto movimiento
+    const movimiento = {
+        monto,
+        categoria,
+        frecuencia
+    };
+
+    // Guardar en ingresos o gastos
+    if (tipo === "ingreso") {
+        finanzas.ingresos.push(movimiento);
+    } else {
+        finanzas.gastos.push(movimiento);
+    }
+
+    // Calcular totales
+    const totalIngresos = finanzas.ingresos.reduce(
+        (acc, item) => acc + item.monto,
+        0
+    );
+
+    const totalGastos = finanzas.gastos.reduce(
+        (acc, item) => acc + item.monto,
+        0
+    );
+
+    const saldo = totalIngresos - totalGastos;
+
+    // Actualizar datos financieros
+    document.getElementById("ingresos").textContent =
+        formatearNumero(totalIngresos);
+
+    document.getElementById("gastos").textContent =
+        formatearNumero(totalGastos);
+
+    document.getElementById("saldo").textContent =
+        formatearNumero(saldo);
+
+    // Agregar movimiento a la lista
+    const lista = document.getElementById("listaMovimientos");
+
+    const item = document.createElement("div");
+
+    item.classList.add("movimiento");
+
+    item.innerHTML = `
+        <p>
+            <strong>${tipo.toUpperCase()}</strong> -
+            ${categoria}
+        </p>
+
+        <p>
+            $${formatearNumero(monto)} | ${frecuencia}
+        </p>
+    `;
+
+    // Agrega el más reciente arriba
+    lista.prepend(item);
+
+    // Limpiar formulario
+    document.getElementById("monto").value = "";
+};
