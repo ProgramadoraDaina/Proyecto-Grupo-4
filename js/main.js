@@ -2,6 +2,9 @@ import { Finanzas } from "./Finanzas.js";
 import { calcularTiempoMeta } from "./logica/simulador.js";
 import { mostrarTiempoEstimado, dibujarGrafico } from "./ui/grafico.js";
 
+import { dibujarGraficoHistorial } from "./ui/graficoHistorial.js";
+import { calcularHistorial } from "./logica/historial.js";
+
 import { actualizarCards } from "./ui/cards.js";
 import { inicializarSidebar, resaltarPaginaActual } from "./ui/sidebar.js";
 
@@ -25,3 +28,13 @@ window.calcularTiempoMeta = function () {
 
 inicializarSidebar();/*Hace que el botón pueda abrir y cerrar el menú*/
 resaltarPaginaActual();
+
+window.mostrarHistorial = function() {
+    const resultado = calcularHistorial(finanzas);
+
+    dibujarGraficoHistorial(resultado.etiquetas, resultado.datos);
+
+    document.querySelector(".chart-container")
+        .classList.remove("oculto");
+};
+

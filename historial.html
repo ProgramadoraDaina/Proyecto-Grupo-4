@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MiniFinance - Simulador</title>
+    <title>MiniFinance - Historial</title>
     <link rel="stylesheet" href="resources/style.css">
     <link rel="stylesheet" href="resources/simulador.css">
     <link rel="stylesheet" href="resources/cards.css">
@@ -35,11 +35,11 @@
                             <span class="icono-inicio"></span>
                             Inicio
                         </a></li>
-                    <li><a href="simulador.html" class="active">
+                    <li><a href="simulador.html">
                             <span class="icono-simulador"></span>
                             Simulador
                         </a></li>
-                        <li><a href="historial.html">
+                    <li><a href="historial.html" class="active">
                             <span class="icono-historial"></span>
                             Historial
                         </a></li>
@@ -52,7 +52,6 @@
                 <h2>Meta</h2>
                 <input type="number" id="metaInput" placeholder="Meta">
                 <button onclick="guardarMeta()">Guardar</button>
-
                 <p id="metaTexto">$0</p>
             </section>
 
@@ -61,8 +60,10 @@
         <main>
             <header>
                 <div>
-                    <h2 class="header h2">Simulador de Ahorro</h2>
-                    <p class="descripcion">Calcula en cuántos meses vas a alcanzar tu meta según tu nivel de ahorro.</p>
+                    <h2 class="header h2">Historial de Ahorro</h2>
+                    <p class="descripcion">
+                        Analiza cómo evolucionó tu ahorro en el tiempo según tus movimientos reales.
+                    </p>
                 </div>
                 <div class="toggleButton" id="toggleButton">
                     <span class="line-Button"></span>
@@ -105,44 +106,43 @@
 
 
             </div>
-
             <!-- Acciones del simulador -->
             <section>
-                <h2 class="subsection-title">Proyección de ahorro</h2>
-
-                <button onclick="calcularTiempoMeta()">
-                    Calcular estimación
-                </button>
-                <p id="resultadoSim"></p>
+                <h2 class="subsection-title">Evolución real del ahorro</h2>
+                <button onclick="mostrarHistorial()">
+                Ver historial
+            </button>
             </section>
-            
-<figure class="chart-container oculto">
-    <canvas id="grafico"></canvas>
-    <figcaption>
-        Evolución del ahorro en el tiempo
-    </figcaption>
-</figure>
 
+            <figure class="chart-container oculto">
+                <canvas id="graficoHistorial"></canvas>
+
+                <figcaption>
+                    Evolución real de tu ahorro (historial)
+                </figcaption>
+
+            </figure>
+</main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="js/main.js"></script>
 
 
-<footer class="footer">
-  <div class="footer-contenido">
-    
-    <img src="resources/img/Daina.png" alt="Daina Paucar" class="footer-foto">
+    <footer class="footer">
+        <div class="footer-contenido">
 
-    <div class="footer-info">
-      <p>Desarrollado por Daina Paucar</p>
-      
-      <a href="https://github.com/ProgramadoraDaina" target="_blank">
-        Ver mi GitHub
-      </a>
-    </div>
+            <img src="resources/img/Daina.png" alt="Daina Paucar" class="footer-foto">
 
-  </div>
-</footer>
+            <div class="footer-info">
+                <p>Desarrollado por Daina Paucar</p>
+
+                <a href="https://github.com/ProgramadoraDaina" target="_blank">
+                    Ver mi GitHub
+                </a>
+            </div>
+
+        </div>
+    </footer>
 
 
 </body>
