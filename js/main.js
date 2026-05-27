@@ -1,9 +1,9 @@
 import { Finanzas } from "./Finanzas.js";
-import { calcularTiempoMeta } from "./logica/simulador.js";
-import { mostrarTiempoEstimado, dibujarGrafico } from "./ui/grafico.js";
+import { calcularTiempoMeta } from "./logic/simulador.js";
+import { mostrarTiempoEstimado, dibujarGrafico } from "./charts/graficoSimulador.js";
 
-import { dibujarGraficoHistorial } from "./ui/graficoHistorial.js";
-import { calcularHistorial } from "./logica/historial.js";
+import { dibujarGraficoHistorial } from "./charts/graficoHistorial.js";
+import { calcularHistorial } from "./logic/historial.js";
 
 import { actualizarCards, actualizarCardsAvanzadas } from "./ui/cards.js";
 import { inicializarSidebar, resaltarPaginaActual } from "./ui/sidebar.js";
@@ -16,7 +16,7 @@ window.calcularTiempoMeta = function () {
                                                     todos los resultados*/
 
     mostrarTiempoEstimado(resultado.resultado);
-    dibujarGrafico(resultado.etiquetas, resultado.datosDiarios);
+    dibujarGrafico(resultado.etiquetas, resultado.datos);
 
     actualizarCards(resultado);
 

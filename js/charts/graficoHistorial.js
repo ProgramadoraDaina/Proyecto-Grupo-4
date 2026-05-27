@@ -1,3 +1,6 @@
+import { glowPointsPlugin } from "../utils/plugins.js";
+import { formatearNumero } from "../utils/formateo.js";
+
 let chartHistorial = null;
 
 export function dibujarGraficoHistorial(labels, data) {
@@ -11,21 +14,6 @@ export function dibujarGraficoHistorial(labels, data) {
     const gradient = ctx.createLinearGradient(0, 0, 0, 400);
     gradient.addColorStop(0, "rgb(34, 197, 94)");
     gradient.addColorStop(1, "rgb(0, 247, 255)");
-const glowPointsPlugin = {
-    id: "glowPoints",
-    beforeDatasetDraw(chart, args, pluginOptions) {
-        const { ctx } = chart;
-
-        ctx.save();
-
-        ctx.shadowBlur = 15; // intensidad del brillo
-        ctx.shadowColor = "rgba(255, 255, 255, 0.8)"; // color del glow
-
-    },
-    afterDatasetDraw(chart) {
-        chart.ctx.restore();
-    }
-};
 
     chartHistorial = new Chart(ctx, {
         type: "line",
@@ -127,12 +115,19 @@ backgroundColor: (ctx) => {
                 y: {
     ticks: {
         color: "#9ca3af",
-        callback: function(value) {
-            return "$" + value.toLocaleString("es-AR");
-        }
+        callback: value => "$" + formatearNumero(value)
     },
     grid: { color: "rgba(255,255,255,0.05)" }
 }
+            },
+            animations: {
+                
+                x: {
+                    duration: 1800
+                },
+                y: {
+                    duration: 2500
+                }
             }
         },
         plugins: [glowPointsPlugin]

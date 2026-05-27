@@ -1,32 +1,34 @@
-.icono-historial {
-    width: 70px;
-    height: 70px;
+.icono-de-historial {
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50px, cover;
 }
 
-.icono-historial-ahorro-total {
+.icono-de-historial-ahorro-total {
     background-image:
         url("img/ahorro.png"),
         radial-gradient(circle, #1f2937, #22c55e);
 }
 
-.icono-historial-promedio {
+.icono-de-historial-promedio {
     background-image:
-        url("img/ahorro.png"),
+        url("img/simulador.png"),
         radial-gradient(circle, #1f2937, #38bdf8);
 }
 
-.icono-historial-mejor-dia {
+.icono-de-historial-mejor-dia {
     background-image:
-        url("img/ahorro.png"),
+        url("img/trofeo.png"),
         radial-gradient(circle, #1f2937, #facc15);
+    background-position: 5px 9px, center;
 }
 
-.icono-historial-racha {
+.icono-de-historial-racha {
     background-image:
-        url("img/ahorro.png"),
-        radial-gradient(circle, #1f2937, #fb7185);
+        url("img/racha.png"),
+        radial-gradient(circle, #1f2937, #ff0000);
+        background-position: 4px 5px, center;
 }

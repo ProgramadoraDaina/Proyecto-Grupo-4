@@ -1,32 +1,18 @@
+import { glowPointsPlugin } from "../utils/plugins.js";
+import { formatearNumero } from "../utils/formateo.js";
 let grafico = null;/*Variable para almacenar el gráfico actual*/
+
+const getElemento = (id) => document.getElementById(id);
 
 export function mostrarTiempoEstimado(texto) {/*Función que recibe un texto y muestra cuánto tiempo falta
                                          para completar la meta*/
-    document.getElementById("resultadoSim").textContent = texto;
+    getElemento("resultadoSim").textContent = texto;
 }
 
 export function dibujarGrafico(labels, data) {
-    let ctx = document.getElementById("grafico").getContext("2d");/*Prepara el espacio donde se va a
+    const ctx = getElemento("grafico").getContext("2d");/*Prepara el espacio donde se va a
                                                                   dibujar el gráfico*/
-
-    if (grafico != null) {/*Si ya existe un gráfico, lo elimina antes de dibujar uno nuevo*/
-        grafico.destroy();
-    }
-const glowPointsPlugin = {
-    id: "glowPoints",
-    beforeDatasetDraw(chart, args, pluginOptions) {
-        const { ctx } = chart;
-
-        ctx.save();
-
-        ctx.shadowBlur = 15; // intensidad del brillo
-        ctx.shadowColor = "rgba(255, 255, 255, 0.8)"; // color del glow
-
-    },
-    afterDatasetDraw(chart) {
-        chart.ctx.restore();
-    }
-};
+    if (grafico) grafico.destroy();
     grafico = new Chart(ctx, {
         type: "line",/*tipo de gráfico (línea)*/
         data: {

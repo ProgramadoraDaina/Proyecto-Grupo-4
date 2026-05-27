@@ -1,5 +1,8 @@
 import { ingresosMensuales, gastosMensuales } from "./calculo.js";
 
+import { glowPointsPlugin } from "../utils/plugins.js";
+import { formatearNumero } from "../utils/formateo.js";
+
 export function calcularTiempoMeta(finanzas) {
     let ing = ingresosMensuales(finanzas.ingresos);
     let gas = gastosMensuales(finanzas.gastos);
