@@ -125,9 +125,14 @@ backgroundColor: (ctx) => {
                     grid: { color: "rgba(255,255,255,0.05)" }
                 },
                 y: {
-                    ticks: { color: "#9ca3af" },
-                    grid: { color: "rgba(255,255,255,0.05)" }
-                }
+    ticks: {
+        color: "#9ca3af",
+        callback: function(value) {
+            return "$" + value.toLocaleString("es-AR");
+        }
+    },
+    grid: { color: "rgba(255,255,255,0.05)" }
+}
             }
         },
         plugins: [glowPointsPlugin]

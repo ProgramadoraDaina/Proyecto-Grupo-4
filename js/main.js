@@ -5,7 +5,7 @@ import { mostrarTiempoEstimado, dibujarGrafico } from "./ui/grafico.js";
 import { dibujarGraficoHistorial } from "./ui/graficoHistorial.js";
 import { calcularHistorial } from "./logica/historial.js";
 
-import { actualizarCards } from "./ui/cards.js";
+import { actualizarCards, actualizarCardsAvanzadas } from "./ui/cards.js";
 import { inicializarSidebar, resaltarPaginaActual } from "./ui/sidebar.js";
 
 const finanzas = new Finanzas();
@@ -16,7 +16,7 @@ window.calcularTiempoMeta = function () {
                                                     todos los resultados*/
 
     mostrarTiempoEstimado(resultado.resultado);
-    dibujarGrafico(resultado.etiquetas, resultado.datos);
+    dibujarGrafico(resultado.etiquetas, resultado.datosDiarios);
 
     actualizarCards(resultado);
 
@@ -30,11 +30,14 @@ inicializarSidebar();/*Hace que el botón pueda abrir y cerrar el menú*/
 resaltarPaginaActual();
 
 window.mostrarHistorial = function() {
+
     const resultado = calcularHistorial(finanzas);
 
-    dibujarGraficoHistorial(resultado.etiquetas, resultado.datos);
+    dibujarGraficoHistorial(resultado.etiquetas, resultado.datosDiarios);
+
+    // 🔥 AHORA USA DATOS REALES
+    actualizarCardsAvanzadas(resultado);
 
     document.querySelector(".chart-container")
         .classList.remove("oculto");
 };
-

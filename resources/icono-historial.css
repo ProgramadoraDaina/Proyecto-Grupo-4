@@ -1,0 +1,32 @@
+.icono-historial {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50px, cover;
+}
+
+.icono-historial-ahorro-total {
+    background-image:
+        url("img/ahorro.png"),
+        radial-gradient(circle, #1f2937, #22c55e);
+}
+
+.icono-historial-promedio {
+    background-image:
+        url("img/ahorro.png"),
+        radial-gradient(circle, #1f2937, #38bdf8);
+}
+
+.icono-historial-mejor-dia {
+    background-image:
+        url("img/ahorro.png"),
+        radial-gradient(circle, #1f2937, #facc15);
+}
+
+.icono-historial-racha {
+    background-image:
+        url("img/ahorro.png"),
+        radial-gradient(circle, #1f2937, #fb7185);
+}

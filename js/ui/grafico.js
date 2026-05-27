@@ -69,8 +69,13 @@ const glowPointsPlugin = {
                 },
                 y: {
                     beginAtZero: true,
-                    ticks: {
-                        color: "#9ca3af"
+                    
+ticks: {
+        color: "#9ca3af",
+        callback: function(value) {
+            return "$" + value.toLocaleString("es-AR");
+        }
+
                     },
                     grid: {
                         color: "#22c55e38"

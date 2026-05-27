@@ -12,7 +12,15 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+.icono-historial {
+  width: 29px;
+  height: 29px;
+  background-image: url("../img/historial.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
 .icono-inicio,
+.icono-historial,
 .icono-simulador {
   display: inline-block;
 }
