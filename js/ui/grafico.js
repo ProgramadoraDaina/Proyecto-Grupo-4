@@ -1,18 +1,18 @@
+import { glowPointsPlugin } from "../utils/plugins.js";
+import { formatearNumero } from "../utils/formateo.js";
 let grafico = null;/*Variable para almacenar el gráfico actual*/
+
+const getElemento = (id) => document.getElementById(id);
 
 export function mostrarTiempoEstimado(texto) {/*Función que recibe un texto y muestra cuánto tiempo falta
                                          para completar la meta*/
-    document.getElementById("resultadoSim").textContent = texto;
+    getElemento("resultadoSim").textContent = texto;
 }
 
 export function dibujarGrafico(labels, data) {
-    let ctx = document.getElementById("grafico").getContext("2d");/*Prepara el espacio donde se va a
+    const ctx = getElemento("grafico").getContext("2d");/*Prepara el espacio donde se va a
                                                                   dibujar el gráfico*/
-
-    if (grafico != null) {/*Si ya existe un gráfico, lo elimina antes de dibujar uno nuevo*/
-        grafico.destroy();
-    }
-
+    if (grafico) grafico.destroy();
     grafico = new Chart(ctx, {
         type: "line",/*tipo de gráfico (línea)*/
         data: {
@@ -55,8 +55,13 @@ export function dibujarGrafico(labels, data) {
                 },
                 y: {
                     beginAtZero: true,
-                    ticks: {
-                        color: "#9ca3af"
+                    
+ticks: {
+        color: "#9ca3af",
+        callback: function(value) {
+            return "$" + value.toLocaleString("es-AR");
+        }
+
                     },
                     grid: {
                         color: "#22c55e38"
@@ -72,7 +77,8 @@ export function dibujarGrafico(labels, data) {
                     duration: 2500
                 }
             }
-        }
+        },
+        plugins: [glowPointsPlugin]
     }
     );
 }

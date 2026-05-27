@@ -1,3 +1,4 @@
+import { formatearNumero } from "../utils/formateo.js";
 export function actualizarCards(resultado) {
     document.getElementById("ingresosCard").textContent ="$" + formatearNumero(resultado.ingresos);
 
@@ -15,6 +16,3 @@ export function actualizarCards(resultado) {
     document.getElementById("tasaCard").textContent = tasa + "%";
 }
 
-function formatearNumero(numero) {
-    return numero.toLocaleString("es-AR");
-}

@@ -1,6 +1,7 @@
 import { Finanzas } from "./Finanzas.js";
 import { calcularTiempoMeta } from "./logica/simulador.js";
 import { mostrarTiempoEstimado, dibujarGrafico } from "./ui/grafico.js";
+import { formatearNumero } from "./utils/formateo.js";
 
 import { actualizarCards } from "./ui/cards.js";
 import { inicializarSidebar, resaltarPaginaActual } from "./ui/sidebar.js";
@@ -197,7 +198,3 @@ window.guardarMeta = guardarMeta;
 window.borrarTodo = borrarTodo;
 
 inicializarUI();
-
-function formatearNumero(numero) {
-    return Number(numero).toLocaleString("es-AR");
-}
