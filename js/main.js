@@ -119,17 +119,21 @@ if (btnIngreso && btnGasto && tipoInput) {
 
 function agregarMovimiento() {
     const tipo = tipoInput ? tipoInput.value : "ingreso";
-    const monto = Number(document.getElementById("monto")?.value || 0);
+    const monto = Number(document.getElementById("monto")?.value);
     const categoria = document.getElementById("categoria")?.value || "Sin categoría";
     const frecuencia = document.getElementById("frecuencia")?.value || "unico";
-
- 
-
+    
     const movimiento = {
         monto,
         categoria,
         frecuencia,
     };
+
+    if (monto === 0 || monto === "") {
+        console.log(monto)
+        showMessage("Por favor ingresa un monto válido", "error");
+        return;
+    } 
 
     if (tipo === "ingreso") {
         finanzas.ingresos.push(movimiento);
@@ -142,8 +146,6 @@ function agregarMovimiento() {
     actualizarMovimientos();
     showMessage("Movimiento guardado");
 
-    const montoInput = document.getElementById("monto");
-    if (montoInput) montoInput.value = "";
 }
 
 function guardarMeta() {
