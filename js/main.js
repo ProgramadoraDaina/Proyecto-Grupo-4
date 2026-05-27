@@ -4,6 +4,7 @@ import { mostrarTiempoEstimado, dibujarGrafico } from "./charts/graficoSimulador
 
 import { dibujarGraficoHistorial } from "./charts/graficoHistorial.js";
 import { calcularHistorial } from "./logic/historial.js";
+import { formatearNumero } from "./utils/formateo.js";
 
 import { actualizarCards, actualizarCardsAvanzadas } from "./ui/cards.js";
 import { inicializarSidebar, resaltarPaginaActual } from "./ui/sidebar.js";
