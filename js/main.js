@@ -173,7 +173,11 @@ function borrarTodo() {
 }
 
 window.calcularTiempoMeta = function () {
-    const resultado = calcularTiempoMeta(finanzas);
+    const resultado = calcularTiempoMeta({
+    ingresos: finanzas.ingresos,
+    gastos: finanzas.gastos,
+    metaAhorro: Number(localStorage.getItem("metaAhorro")) || 0
+});
 
     mostrarTiempoEstimado(resultado.resultado);
     dibujarGrafico(resultado.etiquetas, resultado.datos);
@@ -182,8 +186,18 @@ window.calcularTiempoMeta = function () {
     document.querySelector(".chart-container").classList.remove("oculto");/*Muestra el "Evolución del ahorro
                                                                        en el tiempo" eliminando la clase
                                                                        que lo mantiene oculto*/
-
+mostrarToast("✅ Estimación exitosa");
 };
+function mostrarToast(mensaje) {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = mensaje;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
 
 function tasaText(resultado) {
     let tasa = 0;
