@@ -33,6 +33,7 @@ header {
 
 .contenedor-movimientos {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   /* espacio entre columnas */
   margin-top: 20px;
@@ -40,7 +41,8 @@ header {
 
 /* Cada panel */
 .panel {
-  flex: 1;/* que ocupen mitad y mitad */
+  flex: 1 1 420px;
+  min-width: 280px;
   background: #0f1c2e;/* opcional estilo oscuro */
   padding: 20px;
   border-radius: 10px;
@@ -48,7 +50,8 @@ header {
 
 /* Panel más elegante */
 .panel {
-  flex: 1;
+  flex: 1 1 420px;
+  min-width: 280px;
   background: #0f1c2e;
   padding: 20px;
   border-radius: 10px;
