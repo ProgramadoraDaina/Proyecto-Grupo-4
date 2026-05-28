@@ -229,3 +229,156 @@ form button:hover {
 * {
   box-sizing: border-box;
 }
+
+/* ========================= 
+   ENCABEZADO MOVIMIENTOS
+========================= */
+
+.encabezado-movimientos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.encabezado-movimientos h2 {
+  margin: 0;
+  font-size: 24px;
+  color: white;
+}
+
+.btn-ver-todos {
+  background: transparent;
+  color: #22c55e;
+  border: 1px solid #22c55e;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn-ver-todos:hover {
+  background: #22c55e;
+  color: black;
+}
+
+/* ========================= 
+   MOVIMIENTOS RECIENTES
+========================= */
+
+.categoria-encabezado {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.categoria-encabezado h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.categoria-icono {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+.categoria-sueldo {
+  background-image: url("img/iconos_movimientos_recientes/sueldo.png");
+}
+
+.categoria-comida {
+  background-image: url("img/iconos_movimientos_recientes/comida.png");
+}
+
+.categoria-transporte {
+  background-image: url("img/iconos_movimientos_recientes/transporte.png");
+}
+
+.categoria-regalos {
+  background-image: url("img/iconos_movimientos_recientes/regalos.png");
+}
+
+.categoria-ocio {
+  background-image: url("img/iconos_movimientos_recientes/ocio.png");
+}
+
+.categoria-icono.default {
+  background-image: url("img/iconos_movimientos_recientes/sueldo.png");
+}
+
+.movimiento {
+  background: #131f33;
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  border-left: 4px solid #22c55e;
+  transition: all 0.3s ease;
+}
+
+.movimiento:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.movimiento.ingreso {
+  border-left-color: #22c55e;
+}
+
+.movimiento.gasto {
+  border-left-color: #ef4444;
+}
+
+.movimiento-contenido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.movimiento-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.movimiento-info strong {
+  font-size: 20px;
+}
+
+.movimiento-frecuencia {
+  font-size: 12px;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: capitalize;
+}
+
+.movimiento-monto {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.movimiento-monto.ingreso {
+  color: #22c55e;
+}
+
+.movimiento-monto.gasto {
+  color: #ef4444;
+}
+
+.movimiento-fecha {
+  font-size: 12px;
+  color: #64748b;
+  text-align: right;
+}

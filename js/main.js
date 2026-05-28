@@ -51,24 +51,96 @@ function actualizarEncabezado() {
     if (saldoEl) saldoEl.textContent = formatearNumero(saldo);
 }
 
+function formatearFecha(timestamp) {
+    // Validar que timestamp sea válido
+    if (!timestamp || isNaN(timestamp)) {
+        return "Sin fecha";
+    }
+    
+    const fecha = new Date(timestamp);
+    
+    // Verificar si es una fecha válida
+    if (isNaN(fecha.getTime())) {
+        return "Sin fecha";
+    }
+    
+    const hoy = new Date();
+    const ayer = new Date(hoy);
+    ayer.setDate(ayer.getDate() - 1);
+    
+    const esHoy = fecha.toDateString() === hoy.toDateString();
+    const esAyer = fecha.toDateString() === ayer.toDateString();
+    
+    if (esHoy) {
+        return fecha.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" });
+    } else if (esAyer) {
+        return "Ayer";
+    } else {
+        return fecha.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
+    }
+}
+
 function actualizarMovimientos() {
     if (!listaMovimientos) return;
     listaMovimientos.innerHTML = "";
 
-    const pushMovimiento = (tipo, mov) => {
-        const item = document.createElement("div");
-        item.classList.add("movimiento");
-        item.innerHTML = `
-            <p>
-                <strong>${tipo.toUpperCase()}</strong> - ${mov.categoria}
-            </p>
-            <p>$${formatearNumero(mov.monto)} | ${mov.frecuencia}</p>
-        `;
-        listaMovimientos.prepend(item);
-    };
+    // Combinar todos los movimientos con su tipo
+    const movimientosUnificados = [
+        ...finanzas.ingresos.map(mov => ({ ...mov, tipo: "ingreso" })),
+        ...finanzas.gastos.map(mov => ({ ...mov, tipo: "gasto" }))
+    ];
 
-    finanzas.ingresos.forEach((mov) => pushMovimiento("ingreso", mov));
-    finanzas.gastos.forEach((mov) => pushMovimiento("gasto", mov));
+    // Ordenar por timestamp descendente (más reciente primero)
+    movimientosUnificados.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+    // Tomar solo los últimos 5 movimientos recientes
+    const movimientosRecientes = movimientosUnificados.slice(0, 5);
+
+    // Agrupar por categoría
+    const movimientosPorCategoria = {};
+    movimientosRecientes.forEach(mov => {
+        if (!movimientosPorCategoria[mov.categoria]) {
+            movimientosPorCategoria[mov.categoria] = [];
+        }
+        movimientosPorCategoria[mov.categoria].push(mov);
+    });
+
+    // Renderizar cada categoría como sección
+    Object.keys(movimientosPorCategoria).forEach(categoria => {
+        // Crear encabezado de categoría
+        const categoriaClase = `categoria-${categoria.toLowerCase().replace(/\s+/g, "-")}`;
+
+        const encabezadoCategoria = document.createElement("div");
+        encabezadoCategoria.classList.add("categoria-encabezado");
+        encabezadoCategoria.innerHTML = `
+            <h3><span class="categoria-icono ${categoriaClase}"></span>${categoria}</h3>
+        `;
+        listaMovimientos.appendChild(encabezadoCategoria);
+
+        // Crear movimientos de la categoría
+        movimientosPorCategoria[categoria].forEach(mov => {
+            const item = document.createElement("div");
+            item.classList.add("movimiento");
+            
+            const colorClase = mov.tipo === "ingreso" ? "ingreso" : "gasto";
+            const simbolo = mov.tipo === "ingreso" ? "+" : "-";
+            
+            item.classList.add(colorClase);
+            item.innerHTML = `
+                <div class="movimiento-contenido">
+                    <div class="movimiento-info">
+                        <strong class="categoria-icono ${categoriaClase}"></strong>
+                        <span class="movimiento-frecuencia">${mov.frecuencia}</span>
+                    </div>
+                    <div class="movimiento-monto ${colorClase}">
+                        ${simbolo}$${formatearNumero(mov.monto)}
+                    </div>
+                </div>
+                <div class="movimiento-fecha">${formatearFecha(mov.timestamp)}</div>
+            `;
+            listaMovimientos.appendChild(item);
+        });
+    });
 }
 
 function cargarMeta() {
@@ -131,6 +203,7 @@ function agregarMovimiento() {
         monto,
         categoria,
         frecuencia,
+        timestamp: new Date().getTime(),
     };
 
     if (monto === 0 || monto === "") {
