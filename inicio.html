@@ -38,15 +38,48 @@
             </nav>
             <hr>
             <!-- Meta -->
-            <section>
+           <section class="panel-meta-" id="tarjeta-meta-ahorro">
+              <header class="meta--header">
+    <span class="meta-icon-design" style="display: inline-block !important; font-size: 16px !important; font-weight: bold !important; margin-right: 2px !important;">◎</span>
+    <h3>Meta de ahorro</h3>
+</header>
+                <article class="meta--body">
+                    <h4 id="txt-meta-nombre">Ahorrar para mi viaje</h4>
+                    <p class="monto-destacado-" id="metaTexto">$0</p>
+                    
+                    <div class="form-meta-input">
+                        <input type="number" id="metaInput" placeholder="Ej: 500000">
+                        <button onclick="guardarMeta()">Fijar</button>
+                    </div>
 
-                <h2>Meta</h2>
-                <input type="number" id="metaInput" placeholder="Meta">
-                <button onclick="guardarMeta()">Guardar</button>
+                    <div class="meta-progreso-badge">
+                        <span id="txt-meta-porcentaje">0% completado</span>
+                    </div>
 
-                <p id="metaTexto">$0</p>
+                    <progress id="barra-progreso-nativa" value="0" max="100"></progress>
+                    
+                    <div class="bloque-totales-meta">
+                        <span id="txt-meta-ahorrado">$0</span> ahorrado
+                        <br>
+                        de <span id="txt-meta-objetivo-fijo">$0</span>
+                    </div>
+                </article>
+
+ <footer>
+    <button class="btn-ver-metas-" onclick="irAMetas()">
+        Ver metas
+    </button>
+</footer>
             </section>
-
+            
+            <section class="panel-control-tema" aria-label="Selector de tema visual">
+                <span id="icono-estado-tema" aria-hidden="true">☾</span>
+                <label for="input-switch-tema" class="label-tema">Modo oscuro</label>
+                <label class="switch-contenedor-estetico">
+                    <input type="checkbox" id="input-switch-tema">
+                    <span class="slider-redondeado-dinamico"></span>
+                </label>
+            </section>
         </aside>
         <!-- 🔹 MAIN -->
         <main>
