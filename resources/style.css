@@ -52,11 +52,11 @@ header {
 .panel {
   flex: 1 1 420px;
   min-width: 280px;
-  background: #0f1c2e;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 255, 255, 0.2);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+  background: var(--bg-paneles);
+  padding: 25px;
+  border-radius: 22px;
+  border: 1px solid var(--borde-paneles);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
 }
 
 /* Botones estilo app */
@@ -115,15 +115,26 @@ form label {
   margin-bottom: -8px;
 }
 
-/* inputs y selects */
-form input,
-form select {
-  background: #131f33;
-  border: 1px solid transparent;
+html main form input,
+html main form select {
+  background: var(--bg-inputs);
+  border: 1px solid var(--borde-paneles);
   border-radius: 12px;
   padding: 14px;
-  color: white;
+  color: var(--texto-principal);
   font-size: 15px;
+  transition: 0.3s;
+}
+
+html main form button {
+  margin-top: 10px;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: bold;
   transition: 0.3s;
 }
 
@@ -140,18 +151,6 @@ form input::placeholder {
   color: #64748b;
 }
 
-/* botón principal */
-form button {
-  margin-top: 10px;
-  background: linear-gradient(90deg, #22c55e, #16a34a);
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 14px;
-  font-size: 15px;
-  font-weight: bold;
-  transition: 0.3s;
-}
 
 /* hover botón */
 form button:hover {
@@ -384,4 +383,218 @@ form button:hover {
   font-size: 12px;
   color: #64748b;
   text-align: right;
+}
+
+
+/* Sistema de variables para Switch*/
+:root {
+    --bg-global: radial-gradient(circle at top, #0f172a, #020617);
+    --bg-paneles: linear-gradient(180deg, #0f172a, #0b1220);
+    --bg-meta-box: #111827; 
+    --borde-meta-box: rgba(255, 255, 255, 0.05);
+    --texto-principal: #ffffff;
+    --texto-secundario: #b0b3b8;
+    --texto-meta-labels: #9ca3af;
+    --texto-meta-titles: #ffffff;
+    --borde-paneles: rgba(0, 255, 255, 0.2);
+    --bg-inputs: #131f33;
+    --bg-meta-inputs: #1f2937;
+    --borde-meta-inputs: rgba(255, 255, 255, 0.1);
+    --bg-pista-progress: rgba(255, 255, 255, 0.08);
+
+    /* variable */
+    --color-comida: #ef4444;
+    --color-ocio: #a855f7;
+    --color-transporte: #f97316;
+    --color-regalos: #3b82f6;
+    --color-sueldo: #22c55e;
+    --color-otros: #64748b;
+}
+
+html[data-theme="light"] {
+    --bg-global: radial-gradient(circle at top, #ffffff, #e2e8f0);
+    --bg-paneles: #ffffff;
+    --bg-meta-box: #f8fafc; 
+    --borde-meta-box: #cbd5e1;
+    --texto-principal: #0f172a;
+    --texto-secundario: #475569;
+    --texto-meta-labels: #475569;
+    --texto-meta-titles: #0f172a;
+    --borde-paneles: #cbd5e1;
+    --bg-inputs: #f8fafc;
+    --bg-meta-inputs: #ffffff;
+    --borde-meta-inputs: #cbd5e1;
+    --bg-pista-progress: #cbd5e1;
+}
+
+html body, 
+html main, 
+html .layout, 
+html .stats, 
+html .contenedor-movimientos {
+    background: var(--bg-global);
+    color: var(--texto-principal);
+    transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+html .sidebar, 
+html aside, 
+html #sidebar, 
+html .panel, 
+html .card, 
+html .display-card, 
+html h2, html h3, html h4, html p, html span, html label, html input, html select, html option, html button, 
+html .tipo-toggle, html .tipo-toggle button, 
+html .panel-meta-box, html .centro-vacio-dona, html #txt-meta-nombre, html #metaTexto, html .bloque-totales-meta,
+html #ingresos, html #gastos, html #saldo, html #monto-total-grafico, html .monto-destacado-box, html .categoria-encabezado, html .movimiento {
+    transition: background 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* correccion de texto en modo claro */
+html[data-theme="light"] .descripcion {
+    color: var(--texto-secundario);
+}
+
+html[data-theme="light"] .categoria-encabezado {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .categoria-encabezado h3 {
+    color: var(--texto-principal);
+}
+
+html[data-theme="light"] .panel, 
+html[data-theme="light"] .panel-meta-box {
+    box-shadow: 5px 5px 12px rgba(15, 23, 42, 0.06);
+    border: 1px solid var(--borde-paneles); 
+}
+
+/* Iconos de cards adaptados */
+.icono-ingresos {
+  background-image: url("img/ingresos.png"), radial-gradient(circle, var(--bg-paneles), #22c55e);
+}
+
+.icono-gastos {
+  background-image: url("img/gastos.png"), radial-gradient(circle, var(--bg-paneles), #ff1d1d);
+}
+
+.icono-ahorro {
+  background-image: url("img/ahorro.png"), radial-gradient(circle, var(--bg-paneles), #1e82fc);
+}
+
+.icono-tasa {
+  background-image: url("img/tasa.png"), radial-gradient(circle, var(--bg-paneles), #be1aff);
+}
+
+/*  Grafico de dona */
+html aside .panel-meta-box {
+    background: var(--bg-meta-box);
+    border: 1px solid var(--borde-meta-box);
+    border-radius: 16px; 
+    padding: 20px 16px;  
+    margin: 15px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+html aside .panel-meta-box.meta-exito {
+    border-color: #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+}
+
+html aside .panel-meta-box.meta-advertencia {
+    border-color: #f87171;
+    box-shadow: 0 0 15px rgba(248, 113, 113, 0.2);
+}
+
+
+/* Grafico dona responsivo */
+.wrapper-dona-grafica {
+    position: relative;
+    width: 155px; 
+    height: 155px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.centro-vacio-dona {
+    width: 115px; 
+    height: 115px;
+    background: var(--bg-paneles);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.panel-control-tema {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    margin: 20px 10px 0 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid var(--borde-paneles);
+}
+html aside .form-meta-input input {
+    padding: 10px 12px;
+    font-size: 13px;
+    flex: 1;
+    min-width: 0;
+    background: var(--bg-meta-inputs);
+    border: 1px solid var(--borde-meta-inputs);
+    color: var(--texto-principal);
+    border-radius: 10px; 
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+html aside .form-meta-input input:focus {
+    border-color: #22c55e;
+}
+
+html aside .form-meta-input button {
+    padding: 10px 16px;
+    font-size: 13px;
+    background: #22c55e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+html aside .form-meta-input button:hover {
+    background: #16a34a;
+    transform: translateY(-1px);
+}
+
+html body aside .panel-meta-box footer button {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--borde-meta-inputs);
+    color: var(--texto-meta-titles);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html body aside .panel-meta-box footer button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #22c55e;
 }

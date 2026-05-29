@@ -307,7 +307,7 @@ function calcularProgresoMetaNativa() {
     if (barra) barra.value = porcentaje;
     if (txtPorcentaje) txtPorcentaje.textContent = `${porcentaje}% completado`;
     if (txtAhorrado) txtAhorrado.textContent = "$" + formatearNumero(Math.max(0, ahorroReal));
-    if (txtObjetivoFijo) txtObjetivoFijo.textContent = "$" + formatearNumero(objective || objetivo);
+    if (txtObjetivoFijo) txtObjetivoFijo.textContent = "$" + formatearNumero(objetivo);
 
     // control de alertas por clases 
     if (tarjeta && objetivo > 0) {

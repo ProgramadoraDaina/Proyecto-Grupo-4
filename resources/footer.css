@@ -34,3 +34,8 @@
   color: #ffacd3;
 }
 
+/* ajuste para switch */
+html[data-theme="light"] .footer { background: #e2e8f0; background-image: none; border-top: 1px solid #cbd5e1; }
+html[data-theme="light"] .footer-info p, html[data-theme="light"] .footer p { color: #0f172a; }
+html[data-theme="light"] .footer a { color: #db2777; }
+html[data-theme="light"] .footer a:hover { color: #be185d; }
