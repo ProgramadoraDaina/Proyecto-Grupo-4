@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Financiero - MiniFinance</title>
+    <link rel="stylesheet" href="resources/style.css">
+    <link rel="stylesheet" href="resources/sidebar/sidebar.css">
+    <link rel="stylesheet" href="resources/sidebar/logo.css">
+    <link rel="stylesheet" href="resources/sidebar/icono-sidebar.css">
+    <link rel="stylesheet" href="resources/sidebar/toggleButton.css">
+    <link rel="stylesheet" href="resources/footer.css">
+</head>
+<body>
+<div class="layout">
+
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <h1>
+                    <span class="mini">Mini</span><span class="finance">Finance</span>
+                </h1>
+            </div>
+            
+            <nav>
+    
+    <ul>
+        <li>
+            <a href="inicio.html">
+                <span class="icono-inicio"></span>
+                Inicio
+            </a>
+        </li>
+        <li>
+            <a href="simulador.html">
+                <span class="icono-simulador"></span>
+                Simulador
+            </a>
+        </li>
+        <li>
+            <a href="resumen.html" class="active" id="nav-resumen">
+                <span class="icono-resumen"></span>
+                Resumen
+            </a>
+        </li>
+    </ul>
+</nav>
+<hr>
+            
+            <section class="panel-meta-box" id="tarjeta-meta-ahorro">
+                <header class="meta--header">
+                    <span class="meta-icon-design">◎</span>
+                    <h3>Meta de ahorro</h3>
+                </header>
+                <article class="meta--body">
+                    <h4 id="txt-meta-nombre">Ahorrar para mi viaje</h4>
+                    <p class="monto-destacado-" id="metaTexto">$0</p>
+                    
+                    <div class="form-meta-input">
+                        <input type="number" id="metaInput" placeholder="Ej: 500000">
+                        <button onclick="guardarMeta()">Fijar</button>
+                    </div>
+
+                    <div class="meta-progreso-badge">
+                        <span id="txt-meta-porcentaje">0% completado</span>
+                    </div>
+
+                    <progress id="barra-progreso-nativa" value="0" max="100"></progress>
+                    
+                    <div class="bloque-totales-meta">
+                        <span id="txt-meta-ahorrado">$0</span> ahorrado
+                        <br>
+                        de <span id="txt-meta-objetivo-fijo">$0</span>
+                    </div>
+                </article>
+
+                <footer>
+                    <button class="btn-ver-metas-" onclick="irAMetas()">
+                        Ver metas
+                    </button>
+                </footer>
+            </section>
+            
+            <section class="panel-control-tema" aria-label="Selector de tema visual">
+                <span id="icono-estado-tema" aria-hidden="true">☾</span>
+                <label for="input-switch-tema" class="label-tema">Modo oscuro</label>
+                <label class="switch-contenedor-estetico">
+                    <input type="checkbox" id="input-switch-tema">
+                    <span class="slider-redondeado-dinamico"></span>
+                </label>
+            </section>
+        </aside>
+        <main>
+            <section class="contenedor-movimientos">
+                
+                <article class="panel">
+                    <h2>Totales del Período</h2>
+                    <p class="descripcion">Resumen global de los flujos de caja acumulados en la sesión.</p>
+                    <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px;">
+                        <div>
+                            <span style="color: var(--texto-secundario);">Ingresos Totales:</span>
+                            <strong id="resumen-ingresos" style="color: #22c55e; float: right;">$0.00</strong>
+                        </div>
+                        <div>
+                            <span style="color: var(--texto-secundario);">Gastos Totales:</span>
+                            <strong id="resumen-gastos" style="color: #ef4444; float: right;">$0.00</strong>
+                        </div>
+                        <hr style="border: 0; border-top: 1px solid var(--borde-paneles);">
+                        <div>
+                            <span style="color: var(--texto-principal); font-weight: bold;">Balance Neto:</span>
+                            <strong id="resumen-balance" style="float: right;">$0.00</strong>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="panel">
+                    <h2>Métricas de Ahorro</h2>
+                    <p class="descripcion">Análisis de capacidad de retención de capital.</p>
+                    <div id="contenedor-analitica-gastos" style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.02); border-radius: 12px;">
+                        <span style="color: var(--texto-secundario); font-size: 14px;">Tasa de Ahorro Actual:</span>
+                        <div id="txt-tasa-ahorro" style="font-size: 24px; font-weight: bold; color: #22c55e; margin-top: 5px;">0%</div>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+
+        <aside style="flex: 0 0 320px;">
+
+
+            <section class="panel-meta-box" id="tarjeta-meta-ahorro">
+                <h3>Distribución de Gastos</h3>
+                <p class="descripcion" style="font-size: 12px;">Proporción por categorías.</p>
+                
+                <div class="wrapper-dona-grafica">
+                    <div class="centro-vacio-dona">
+                        <span id="monto-total-grafico" style="font-size: 20px; font-weight: bold;">$0</span>
+                        <span class="txt-dona-label" style="font-size: 11px;">Gastado</span>
+                    </div>
+                </div>
+
+                <ul id="leyenda-dinamica-gastos" style="padding: 0; margin: 0;">
+                    </ul>
+            </section>
+
+        </aside>
+
+    </div>
+
+    <div id="alertas"></div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
