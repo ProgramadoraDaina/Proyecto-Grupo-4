@@ -393,18 +393,19 @@ function actualizarGraficoDonaNativo() {
     }
 }
 
-    const paletaColores = {
-        "Comida": "#ef4444",      
-        "Ocio": "#a855f7",        
-        "Transporte": "#f97316",  
-        "Regalos": "#3b82f6",     
-        "Sueldo": "#22c55e"       
-    };
+const estilosRoot = getComputedStyle(document.documentElement);
+
+const paletaColores = {
+    "Comida": estilosRoot.getPropertyValue('--color-comida').trim() || "#ef4444",      
+    "Ocio": estilosRoot.getPropertyValue('--color-ocio').trim() || "#a855f7",        
+    "Transporte": estilosRoot.getPropertyValue('--color-transporte').trim() || "#f97316",  
+    "Regalos": estilosRoot.getPropertyValue('--color-regalos').trim() || "#3b82f6",     
+    "Sueldo": estilosRoot.getPropertyValue('--color-sueldo').trim() || "#22c55e"       
+};
 
     if (wrapperDona) {
         if (totalGastos === 0) {
-const esClaro = document.documentElement.getAttribute('data-theme') === 'light';
-            wrapperDona.style.background = esClaro ? "#cbd5e1" : "#334155";
+          wrapperDona.style.background = "var(--bg-pista-progress)";
         } else {
             let acumulado = 0;
             const tramos = [];
