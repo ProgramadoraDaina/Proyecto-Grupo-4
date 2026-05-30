@@ -1,7 +1,7 @@
 main {
   background: radial-gradient(circle at top, #0f172a, #020617);
   padding: 20px;
-  width: 0;
+ min-width: 0;
   flex: 1;
   margin: 0;
   padding-bottom:0;
@@ -43,7 +43,7 @@ header {
 .panel {
   flex: 1 1 420px;
   min-width: 280px;
-  background: #0f1c2e;/* opcional estilo oscuro */
+  background: var(--bg-paneles);
   padding: 20px;
   border-radius: 10px;
 }
@@ -158,11 +158,16 @@ form button:hover {
   box-shadow: 0 0 15px rgba(34,197,94,0.4);
 }
 
-/* panel más parecido a app mobile */
-.panel {
-  background: linear-gradient(180deg, #0f172a, #0b1220);
-  border-radius: 22px;
-  padding: 25px;
+/* quitamos la flechitas que ponen los navegadores */
+html body aside .panel-meta-box .form-meta-input input::-webkit-outer-spin-button,
+html body aside .panel-meta-box .form-meta-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+html body aside .panel-meta-box .form-meta-input input[type="number"] {
+   appearance: none;
 }
 
 /* contenedor */
@@ -172,20 +177,23 @@ form button:hover {
 
 .tipo-toggle {
   display: flex;
-  background: #131f33;
+  background: var(--bg-inputs);
+  border: 1px solid var(--borde-paneles);
   border-radius: 14px;
   padding: 5px;
   gap: 5px;
+  
 }
 
 .tipo-toggle button {
   flex: 1;
   background: transparent;
   border: none;
-  color: #cbd5e1;
+  color: var(--texto-principal);
   padding: 12px;
   border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
   transition: 0.3s;
 }
 
@@ -193,6 +201,17 @@ form button:hover {
 .tipo-toggle .activo {
   background: #22c55e;
   color: white;
+}
+
+/*estado no activo*/
+.tipo-toggle button:not(.activo) {
+  color: var(--texto-secundario);
+  opacity: 0.8;
+}
+.tipo-toggle button:not(.activo):hover {
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 1;
+  color: var(--texto-principal);
 }
 
 #alertas {
@@ -319,7 +338,7 @@ form button:hover {
 }
 
 .movimiento {
-  background: #131f33;
+  background: var(--bg-inputs);
   padding: 14px;
   margin-bottom: 10px;
   border-radius: 12px;
@@ -327,6 +346,11 @@ form button:hover {
   transition: all 0.3s ease;
 }
 
+/* ajuste de color para la frecuencia (ej: 'unico', 'mensual') en modo claro */
+html[data-theme="light"] .movimiento-frecuencia {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--texto-secundario);
+}
 .movimiento:hover {
   transform: translateX(4px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -412,8 +436,8 @@ form button:hover {
 }
 
 html[data-theme="light"] {
+  --bg-paneles: linear-gradient(0deg, #ffffff, #ffffff);
     --bg-global: radial-gradient(circle at top, #ffffff, #e2e8f0);
-    --bg-paneles: #ffffff;
     --bg-meta-box: #f8fafc; 
     --borde-meta-box: #cbd5e1;
     --texto-principal: #0f172a;
@@ -487,30 +511,6 @@ html[data-theme="light"] .panel-meta-box {
 }
 
 /*  Grafico de dona */
-html aside .panel-meta-box {
-    background: var(--bg-meta-box);
-    border: 1px solid var(--borde-meta-box);
-    border-radius: 16px; 
-    padding: 20px 16px;  
-    margin: 15px 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
-}
-
-html aside .panel-meta-box.meta-exito {
-    border-color: #22c55e;
-    box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
-}
-
-html aside .panel-meta-box.meta-advertencia {
-    border-color: #f87171;
-    box-shadow: 0 0 15px rgba(248, 113, 113, 0.2);
-}
-
-
-/* Grafico dona responsivo */
 .wrapper-dona-grafica {
     position: relative;
     width: 155px; 
@@ -534,6 +534,16 @@ html aside .panel-meta-box.meta-advertencia {
     justify-content: center;
 }
 
+.txt-dona-label {
+    color: var(--texto-secundario);
+    transition: color 0.3s ease-in-out;
+}
+
+html[data-theme="light"] .txt-dona-label {
+    color: #475569; 
+}
+
+
 
 .panel-control-tema {
     display: flex;
@@ -544,40 +554,11 @@ html aside .panel-meta-box.meta-advertencia {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 12px;
     border: 1px solid var(--borde-paneles);
-}
-html aside .form-meta-input input {
-    padding: 10px 12px;
-    font-size: 13px;
-    flex: 1;
-    min-width: 0;
-    background: var(--bg-meta-inputs);
-    border: 1px solid var(--borde-meta-inputs);
-    color: var(--texto-principal);
-    border-radius: 10px; 
-    outline: none;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
 }
 
-html aside .form-meta-input input:focus {
+html aside .panel-meta-box .form-meta-input input:focus {
     border-color: #22c55e;
-}
-
-html aside .form-meta-input button {
-    padding: 10px 16px;
-    font-size: 13px;
-    background: #22c55e;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-html aside .form-meta-input button:hover {
-    background: #16a34a;
-    transform: translateY(-1px);
 }
 
 html body aside .panel-meta-box footer button {
@@ -591,10 +572,214 @@ html body aside .panel-meta-box footer button {
     font-weight: 500;
     cursor: pointer;
     margin-top: 15px;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 html body aside .panel-meta-box footer button:hover {
     background: rgba(255, 255, 255, 0.08);
     color: #22c55e;
+}
+
+.switch-contenedor-estetico {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+    cursor: pointer;
+    flex-shrink: 0; 
+}
+
+.slider-redondeado-dinamico {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #4b5563;
+    border-radius: 34px;
+    border: none; 
+}
+
+/* fondo en modo claro */
+html[data-theme="light"] body aside,
+html[data-theme="light"] body .sidebar,
+html[data-theme="light"] body main .panel {
+    background: var(--bg-paneles);
+    border-color: var(--borde-paneles);
+}
+
+/*     los textos internos hereden el color oscuro en moodo claro */
+html[data-theme="light"] body aside *,
+html[data-theme="light"] body .sidebar * {
+    color: var(--texto-principal);
+}
+/* Forzar que las tarjetas del simulador muten a blanco en modo claro */
+html[data-theme="light"] body main .card,
+html[data-theme="light"] body main .display-card {
+    background: var(--bg-paneles);
+    border-color: var(--borde-paneles);
+}
+
+/* cambiar los títulos internos de las tarjetas a color oscuro */
+html[data-theme="light"] body main .card h3,
+html[data-theme="light"] body main .display-card h3 {
+    color: var(--texto-principal);
+    
+}
+/* qsegurar contraste en textos del formulario central y módulo de gastos */
+html[data-theme="light"] body main form label,
+html[data-theme="light"] body main .panel h2,
+html[data-theme="light"] body main .panel h3,
+html[data-theme="light"] body main .panel p,
+html[data-theme="light"] body main .panel span {
+    color: var(--texto-principal);
+}
+
+html body .switch-contenedor-estetico .slider-redondeado-dinamico {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    border-radius: 34px;
+    transition: background-color 0.3s ease;
+}
+
+
+html body .switch-contenedor-estetico input:checked + .slider-redondeado-dinamico {
+    background-color: #22c55e; 
+}
+
+/* construir la bolita blanca desde cero con medidas fijas */
+html body .switch-contenedor-estetico .slider-redondeado-dinamico::before {
+    position: absolute;
+    content: "";
+    height: 18px;  
+    width: 18px;   
+    left: 3px;     
+    bottom: 3px;   
+    background-color: #ffffff; 
+    border-radius: 50%; 
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html body .switch-contenedor-estetico input:checked + .slider-redondeado-dinamico::before {
+    transform: translateX(22px); 
+}
+
+/* -------------------------------------
+   Meta de ahorro funcionalidades
+  ---------------------------------------*/
+
+/* Transicion de la meta de ahorro segun el tema elegido */
+html body aside .panel-meta-box {
+    background: var(--bg-meta-box);
+    border: 1px solid var(--borde-meta-box);
+    border-radius: 16px;
+    padding: 20px 16px;
+    margin: 15px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/* estado de exito cuando alcanzás o superás la meta */
+html body aside .panel-meta-box.meta-exito {
+    border-color: #22c55e;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.2), 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+html body aside .panel-meta-box.meta-exito progress::-webkit-progress-value {
+    background-color: #22c55e; /* Barra verde */
+}
+
+/* estado de advertencia cuando los gastos superen o esten lejos de la meta */
+html body aside .panel-meta-box.meta-advertencia {
+    border-color: #ef4444; 
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.25), 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* fila interna (Input + Botón) */
+html body aside .panel-meta-box .form-meta-input {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* El input numérico interno en modo oscuro */
+html body aside .panel-meta-box .form-meta-input input {
+    background: var(--bg-meta-inputs);
+    border: 1px solid var(--borde-meta-inputs);
+    color: var(--texto-principal);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+
+/* Botón Fijar */
+html body aside .panel-meta-box .form-meta-input button {
+    background: #22c55e;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Barra de progreso chata en modo oscuro */
+html body aside .panel-meta-box progress {
+    width: 100%;
+    height: 10px;
+    border-radius: 6px;
+    background-color: var(--bg-pista-progress);
+    border: none;
+    margin: 10px 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+html body aside .panel-meta-box progress::-webkit-progress-bar {
+    background-color: var(--bg-pista-progress);
+    border-radius: 6px;
+}
+
+html body aside .panel-meta-box progress::-webkit-progress-value {
+    background-color: #22c55e;
+    border-radius: 6px;
+}
+
+
+/* Todos los textos del bloque heredan dinámicamente el color principal del tema */
+html body aside .panel-meta-box h3,
+html body aside .panel-meta-box .bloque-totales-meta,
+html body aside .panel-meta-box .bloque-totales-meta strong,
+html body aside .panel-meta-box .bloque-totales-meta span,
+html body aside .panel-meta-box #txt-meta-nombre {
+    color: var(--texto-principal);
+    transition: color 0.3s ease-in-out;
+}
+
+/* para las etiquetas secundarias sutiles de la meta, usamos el texto secundario */
+html body aside .panel-meta-box .bloque-totales-meta {
+    color: var(--texto-secundario);
+}
+
+/* para adaptar el icono de la meta */
+.meta-icon-design {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 2px;
+    color: var(--texto-principal);
+    transition: color 0.3s ease-in-out;
 }

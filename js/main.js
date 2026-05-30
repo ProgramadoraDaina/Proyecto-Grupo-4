@@ -303,23 +303,38 @@ function calcularProgresoMetaNativa() {
     const txtAhorrado = document.getElementById('txt-meta-ahorrado');
     const tarjeta = document.getElementById('tarjeta-meta-ahorro');
     const txtObjetivoFijo = document.getElementById('txt-meta-objetivo-fijo');
+    const contenedorAnalitica = document.getElementById('contenedor-analitica-gastos');
 
     if (barra) barra.value = porcentaje;
     if (txtPorcentaje) txtPorcentaje.textContent = `${porcentaje}% completado`;
     if (txtAhorrado) txtAhorrado.textContent = "$" + formatearNumero(Math.max(0, ahorroReal));
-    if (txtObjetivoFijo) txtObjetivoFijo.textContent = "$" + formatearNumero(objetivo);
+   if (txtObjetivoFijo) txtObjetivoFijo.textContent = "$" + abreviarMonto(objetivo);
 
-    // control de alertas por clases 
-    if (tarjeta && objetivo > 0) {
-        tarjeta.classList.remove('meta-exito', 'meta-advertencia'); 
-        
+    // fucion para abreviar montos exorbitantes
+    function abreviarMonto(val) {
+        return val >= 1000000 ? `${(val / 1000000).toFixed(1)}M` : formatearNumero(val);
+    }
+
+    if (tarjeta) tarjeta.classList.remove('meta-exito', 'meta-advertencia');
+    if (contenedorAnalitica) contenedorAnalitica.classList.remove('gasto-peligro');
+
+    if (objetivo > 0) {
         if (porcentaje >= 100) {
             tarjeta.classList.add('meta-exito');
-        } else if (porcentaje < 35 && ahorroReal < gastos) {
+            showMessage("🎉 ¡Felicidades! Alcanzaste tu meta de ahorro", "success");
+        } 
+        else if (gastos > ingresos) {
             tarjeta.classList.add('meta-advertencia');
+            if (contenedorAnalitica) contenedorAnalitica.classList.add('gasto-peligro');
+            showMessage("⚠️ Alerta: Tus gastos superan tus ingresos actuales", "error");
+        }
+        else if (ingresos > 0 && (gastos / ingresos) > 0.7) {
+            if (contenedorAnalitica) contenedorAnalitica.classList.add('gasto-peligro');
+            showMessage("⚠️ Cuidado: Has consumido más del 70% de tus ingresos", "error");
         }
     }
 }
+
 
 function inicializarSistemaTemas() {
     const switchTema = document.getElementById('input-switch-tema');
@@ -367,8 +382,16 @@ function actualizarGraficoDonaNativo() {
     const wrapperDona = document.querySelector(".wrapper-dona-grafica");
 
     if (totalGraficoEl) {
+       if (totalGastos >= 1000000000) {
+        totalGraficoEl.textContent = `$${(totalGastos / 1000000000).toFixed(1)}B`; // Billones (B)
+    } else if (totalGastos >= 1000000) {
+        totalGraficoEl.textContent = `$${(totalGastos / 1000000).toFixed(1)}M`; // Millones (M)
+    } else if (totalGastos >= 10000) {
+        totalGraficoEl.textContent = `$${(totalGastos / 1000).toFixed(0)}K`; // Miles (K)
+    } else {
         totalGraficoEl.textContent = `$${formatearNumero(totalGastos)}`;
     }
+}
 
     const paletaColores = {
         "Comida": "#ef4444",      
@@ -380,7 +403,8 @@ function actualizarGraficoDonaNativo() {
 
     if (wrapperDona) {
         if (totalGastos === 0) {
-            wrapperDona.style.background = "#334155";
+const esClaro = document.documentElement.getAttribute('data-theme') === 'light';
+            wrapperDona.style.background = esClaro ? "#cbd5e1" : "#334155";
         } else {
             let acumulado = 0;
             const tramos = [];
@@ -392,7 +416,7 @@ function actualizarGraficoDonaNativo() {
                 acumulado += porcentaje;
             });
 
-            wrapperDona.style.setProperty("background", `conic-gradient(${tramos.join(", ")})`, "important");
+           wrapperDona.style.background = `conic-gradient(${tramos.join(", ")})`;
         }
     }
 
