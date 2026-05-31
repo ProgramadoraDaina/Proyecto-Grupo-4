@@ -535,7 +535,6 @@ html[data-theme="light"] .panel-meta-box {
 
   .layout > aside,
   main {
-    width: 100%;
     flex: none;
   }
 

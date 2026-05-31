@@ -463,4 +463,8 @@ window.agregarMovimiento = agregarMovimiento;
 window.guardarMeta = guardarMeta;
 window.borrarTodo = borrarTodo;
 
-inicializarUI();
+document.addEventListener("DOMContentLoaded", () => {
+    inicializarSidebar();
+    resaltarPaginaActual();
+    inicializarUI();
+});
