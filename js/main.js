@@ -221,7 +221,7 @@ function agregarMovimiento() {
         guardarMovimientosSesion({ ingresos: finanzas.ingresos, gastos: finanzas.gastos });
     actualizarEncabezado();
     actualizarMovimientos();
-    calcularProgresoMetaNativa();  // re-calcula tu barra de progreso con el nuevo saldo
+    calcularProgresoMetaNativa(true);  // re-calcula tu barra de progreso con el nuevo saldo
     actualizarGraficoDonaNativo(); // re-dibuja los tramos del gradiente cónico del grafico
     showMessage("Movimiento guardado");
 
@@ -235,6 +235,9 @@ function guardarMeta() {
     }
     if (metaTexto) metaTexto.textContent = `$${formatearNumero(metaValor)}`;
     localStorage.setItem("metaAhorro", metaValor.toString());
+
+    calcularProgresoMetaNativa(true);
+    
     showMessage("Meta guardada");
 }
 
@@ -285,7 +288,7 @@ function tasaText(resultado) {
 }
 
 // barra de progreso del grafisco 
-function calcularProgresoMetaNativa() {
+function calcularProgresoMetaNativa(dispararAlerta = false) {
     const ingresos = finanzas.ingresos.reduce((acc, mov) => acc + Number(mov.monto || 0), 0);
     const gastos = finanzas.gastos.reduce((acc, mov) => acc + Number(mov.monto || 0), 0);
     const ahorroReal = ingresos - gastos;
@@ -317,16 +320,25 @@ function calcularProgresoMetaNativa() {
     if (objetivo > 0) {
         if (porcentaje >= 100) {
             tarjeta.classList.add('meta-exito');
-            showMessage("🎉 ¡Felicidades! Alcanzaste tu meta de ahorro", "success");
+            if (dispararAlerta)
+                {showMessage("🎉 ¡Felicidades! Alcanzaste tu meta de ahorro", "success");}
+            
         } 
         else if (gastos > ingresos) {
             tarjeta.classList.add('meta-advertencia');
-            if (contenedorAnalitica) contenedorAnalitica.classList.add('gasto-peligro');
-            showMessage("⚠️ Alerta: Tus gastos superan tus ingresos actuales", "error");
         }
+
+        if (gastos > ingresos) {
+        if (contenedorAnalitica) contenedorAnalitica.classList.add('gasto-peligro');
+        // Si la bandera es true, gatilla el cartel flotante rojo de saldo negativo
+        if (dispararAlerta) {showMessage("⚠️ Alerta: Tus gastos superan tus ingresos actuales", "error");
+        }
+    }
         else if (ingresos > 0 && (gastos / ingresos) > 0.7) {
             if (contenedorAnalitica) contenedorAnalitica.classList.add('gasto-peligro');
-            showMessage("⚠️ Cuidado: Has consumido más del 70% de tus ingresos", "error");
+            if (dispararAlerta){  showMessage("⚠️ Cuidado: Has consumido más del 70% de tus ingresos", "error");
+            }
+           
         }
     }
 }

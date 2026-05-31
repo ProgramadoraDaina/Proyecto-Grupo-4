@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 main {
   background: radial-gradient(circle at top, #0f172a, #020617);
   padding: 20px;
@@ -247,9 +250,7 @@ html body aside .panel-meta-box .form-meta-input input[type="number"] {
   transform: translateY(-8px);
 }
 
-* {
-  box-sizing: border-box;
-}
+
 
 /* ========================= 
    ENCABEZADO MOVIMIENTOS
