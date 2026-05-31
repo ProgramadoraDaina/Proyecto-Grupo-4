@@ -135,6 +135,37 @@ function inicializarResumen() {
     const ordenFiltro = document.getElementById("orden");
 
     const movimientosRecientes = obtenerMovimientosRecientes();
+    function calcularMetricasGlobales() {
+        const datosSesion = cargarMovimientosSesion();
+        
+
+        const totalIngresos = datosSesion.ingresos.reduce((acc, mov) => acc + Number(mov.monto || 0), 0);
+        const totalGastos = datosSesion.gastos.reduce((acc, mov) => acc + Number(mov.monto || 0), 0);
+        const balanceNeto = totalIngresos - totalGastos;
+
+
+        const txtIngresos = document.getElementById("resumen-ingresos");
+        const txtGastos = document.getElementById("resumen-gastos");
+        const txtBalance = document.getElementById("resumen-balance");
+
+        if (txtIngresos) txtIngresos.textContent = `$${formatearNumero(totalIngresos)}`;
+        if (txtGastos) txtGastos.textContent = `$${formatearNumero(totalGastos)}`;
+        if (txtBalance) {
+            txtBalance.textContent = `$${formatearNumero(balanceNeto)}`;
+
+            txtBalance.style.color = balanceNeto >= 0 ? "#22c55e" : "#ef4444";
+        }
+
+        const txtTasa = document.getElementById("txt-tasa-ahorro");
+        if (txtTasa) {
+            if (totalIngresos <= 0 || balanceNeto <= 0) {
+                txtTasa.textContent = "0%";
+            } else {
+                const porcentajeTasa = (balanceNeto / totalIngresos) * 100;
+                txtTasa.textContent = `${porcentajeTasa.toFixed(1)}%`;
+            }
+        }
+    }
 
     function actualizarVista() {
         const filtros = {
@@ -144,6 +175,7 @@ function inicializarResumen() {
         };
         renderizarListaResumen(movimientosRecientes, filtros);
     }
+    calcularMetricasGlobales();
 
     // Mostrar movimientos iniciales
     actualizarVista();
