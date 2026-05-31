@@ -1,7 +1,7 @@
 Alumnas:
 - Daina Gimena Paucar
 - Camila Maria Ferro
-- Angela Lucero Álvarez
+- Ángela Lucero Álvarez
 
 1.-¿Qué herramientas de IA utilizaron?
 
@@ -31,6 +31,13 @@ A partir de esas sugerencias, fui adaptando el código según lo que necesitaba,
 -Camila: Utilice agentes como apoyo durante el desarrollo del proyecto. Me ayudó a resolver problemas específicos que parecian complejos, entender errores que aparecían en el código para poder arreglarlos y  obtener sugerencias para implementar nuevas características. Tambien utilicé
 IA para entender algunos errores de git que surgian al momento de realizar los merge.
 
+- Ángela: Utilicé la IA principalmente para la maquetación estética, el control de estilos de la interfaz y la resolución de errores técnicos. En particular, la utilicé para:
+-Lograr incorporar los temas Oscuro/Claro en cada seccion de las tres paginas sin que se rompa el mismo.
+-Analizar y corregir la especificidad en CSS para lograr que los estilos del inicio y del resumen se vean unificados.
+-Investigar métodos de diseño responsive para asegurar que las tarjetas de movimientos no se deformen en pantallas chicas.
+-Interpretar y resolver mensajes de error críticos de Git que bloqueaban la integración del código en el repositorio.
+-Validar la estructura del código existente para detectar fallas visuales o desbordes en los paneles.
+
 3.-¿Qué partes del proyecto fueron asistidas por IA?
 
 Las partes del proyecto que fueron asistidas por IA incluyen principalmente la creación e implementación de la lógica funcional del sistema.
@@ -49,6 +56,12 @@ Si bien la IA me ayudo a generar estas cosas, todas las partes fueron adaptadas,
 La IA asistió principalmente la implementación y validación del formulario de movimientos.
 Tambien en el manejo de datos mediante sessionStorage, en la generación de alertas de validación y confirmación de acciones. Ajustes de estilos CSS, diseño responsive y distribución de componentes.
 
+- Ángela:
+La asistencia de la IA se limitó al refinamiento visual de la lista de movimientos y a la optimización de la interactividad del formulario de metas en la barra lateral.
+
+En la lógica de JavaScript, la utilicé para validar que la manipulación del DOM al alternar la visibilidad de los inputs de la meta de ahorro (como el campo condicional "Otro") no interfiriera con el flujo de renderizado responsive de la barra de navegación lateral, dejando en mi absoluta autoría el desarrollo de las estructuras condicionales de control para el sistema de alertas por consumo y la lógica del cambio de tema.
+
+
 4.-¿Qué prompts o consultas me resultaron más útiles?
 
 Los prompts más útiles fueron:
@@ -58,6 +71,11 @@ Los prompts más útiles fueron:
 - “Quiero crear una función que calcule en cuántos meses se alcanza una meta de ahorro. Tengo ingresos mensuales, gastos mensuales y una meta definida. ¿Cómo puedo implementar un bucle que acumule el ahorro mes a mes hasta llegar a esa meta?”
 
 - “Quiero graficar la evolución del ahorro en el tiempo usando Chart.js. Tengo un array de meses y otro con el ahorro acumulado. ¿Cómo puedo configurar un gráfico de línea para mostrar esa información?”
+
+- Angela:
+"Asumi el rol de un Desarrollador Frontend Senior con 20 años de experiencia. Tus conocimientos se basan en bibliografía técnica verificada y, sobre todo, en la aplicación práctica dentro del entorno laboral real (arquitectura, buenas prácticas y lógica de negocio, no solo la sintaxis). No intentes adivinar ni asumir información si te faltan datos, prefiero que me preguntes. Necesito que sigas estrictamente el hilo de la conversación al analizar el código y las imágenes que te iré compartiendo. Te enviaré fragmentos de CSS que no se están acoplando correctamente al proyecto de "Minifinance" que debo realizar, y necesito tu guía para resolverlo de la mejor forma."
+
+
 
 5.-¿Qué respuestas de la IA tuve que corregir?
 - Daina:
@@ -74,6 +92,13 @@ Esta experiencia me hizo entender que la IA puede proponer soluciones válidas, 
 - Camila:
 En algunos casos (como el del formulario de historial de movimientos) fue necesario adaptar el código sugerido para que funcionara con la estructura específica del proyecto. También hubo respuestas que asumían una organización de archivos distinta a la que utilizábamos o que no contemplaban ciertas validaciones necesarias. Por eso siempre fue importante revisar, probar y ajustar las soluciones antes de incorporarlas al código final y obtener el resultado 
 esperado por todas. 
+
+- Angela:
+Durante el desarrollo del sistema de diseño, la IA cometió dos errores graves de arquitectura CSS que tuve que frenar y corregir manualmente:
+El uso de !important: Al intentar resolver problemas de herencia visual en los componentes de la interfaz, la IA sugirió reiteradamente forzar los estilos utilizando la regla !important. Eso rompe la cascada natural de CSS y vuelve el código inmantenible a largo plazo. En su lugar, corregí el enfoque reestructurando selectores limpios de mayor especificidad.
+
+Campos de texto desbordados en la Meta de Ahorro: Al diseñar el formulario para que el usuario configure su objetivo financiero, la IA sugirió campos de texto plano anidados que desbordaban la barra lateral en resoluciones móviles. Corregí esto implementando un elemento select controlado y aplicando una restricción estricta de un máximo de 15 caracteres (maxlength="15") en el campo de texto libre para proteger la integridad del layout responsive.
+
 
 6.-¿Qué problemas tuve al trabajar con IA?
 - Daina:
@@ -103,6 +128,10 @@ Además, en algunas etapas del desarrollo utilicé un agente con permisos para r
 
 
 Estas experiencias me ayudaron a comprender que los agentes son una gran herramienta pero que sus propuestas deben ser revisadas cuidadosamente y validadas mediante pruebas antes de incorporarlas definitivamente al proyecto. También reforzaron la importancia de utilizar herramientas de control de versiones para poder recuperar cambios y mantener la estabilidad del desarrollo.
+
+- Angela:
+El principal problema técnico que enfrenté fue la ceguera (si podemos decirle asi) de la IA ante errores sutiles de CSS y la falta de percepción del layout general. En múltiples ocasiones, al presentarle un bug visual donde un estilo no se estaba aplicando correctamente, la IA no lograba identificar la raíz del problema por sí sola y comenzaba a adivinar, sugiriendo cambios invasivos o parches innecesarios.
+El flujo de trabajo se destrababa únicamente cuando yo analizaba el inspector del navegador, detectaba el conflicto (por ejemplo, una regla pisada o un problema de dimensiones) y le enviaba a la IA una sugerencia directa de dónde estaba la falla. Recién ahí la herramienta lograba procesar la solución técnica adecuada. Esto me demostró que la IA es un soporte útil, pero carece del criterio analítico humano para diagnosticar problemas visuales complejos de forma autónoma.
 
 7.-¿Qué aprendí durante el proceso?
 
@@ -135,6 +164,10 @@ Además, desarrollé una mayor capacidad para analizar errores, tengo una vision
 
 Por otro lado, mejoré mis habilidades de resolución de problemas, ya que muchas veces fue necesario investigar errores, probar distintas alternativas y adaptar las soluciones propuestas por la IA o encontradas en documentación. Este proceso me ayudó a desarrollar una actitud más crítica frente al código y a comprender mejor cómo funcionan las herramientas y tecnologías utilizadas. En general, el proyecto me permitió ganar experiencia tanto en aspectos técnicos como en competencias de trabajo colaborativo, organización y aprendizaje autónomo.
 
+- Ángela:
+A nivel técnico, aprendí a dominar la cascada y la especificidad de CSS para crear interfaces dinámicas y limpias que reaccionan al estado de los datos sin saturar el DOM. Consolidé conocimientos avanzados en JavaScript al manipular los atributos de raíz del HTML (data-theme) para la persistencia del cambio de tema y el procesamiento de flujos financieros complejos mediante condicionales interactivos. 
+En el aspecto grupal, el proyecto me aportó un aprendizaje muy importante sobre las dinámicas del trabajo en equipo. Comprender que en el mundo real los problemas no se resuelven de forma aislada o dependiendo puramente de una IA, sino mediante el vinculo con mis compañeras, cambió mi perspectiva de desarrollo. Aprendí el valor de la comunicación (estableciendo avisos entre nosotras antes de alterar el repositorio), criterio para unificar codigos cruzados, y la responsabilidad de hacer código pensando en la mantenibilidad del trabajo de las demás, logrando fusionar tres visiones distintas en un este proyecto.
+
 8. ¿Qué partes del código puede explicar cada integrante?
 
 - Daina:
@@ -162,7 +195,18 @@ Por otro lado, mejoré mis habilidades de resolución de problemas, ya que mucha
 
 - La panel de historial de movimientos, incluyendo la visualización completa de ingresos y egresos registrados  las funcionalidades de ordenamiento y filtrado de movimientos según criterios como fecha, monto o tipo de operación. 
 
-Angela:
+- Angela:
+-Arquitectura y lógica de la Meta de Ahorros y Categorías: Toda la maquetación e interactividad del panel lateral, la captura de datos del input, el ciclo de confirmación del formulario y las opciones para indicar para qué se destina el dinero.
+
+-Cálculo de la Tasa de Ahorro: El desarrollo matemático implementado en js/resumen.js que procesa los totales del período y calcula el porcentaje de retención real. Incluyendo lo necesario para mitigar errores de ejecución (como excepciones por división por cero cuando no existen ingresos registrados).
+
+-Módulo de Lógica y Sistema de Alertas: Si los egresos del usuario están consumiendo más del 70% del capital acumulado, disparando una advertencia preventiva.
+Alerta de Consumo Anticipado: El control lógico que advierte al usuario cuando intenta ingresar un egreso antes de haber registrado un ingreso, notificando explícitamente que los gastos superan al total ahorrado.
+Alerta de Éxito: El disparador de felicitaciones automatizado que se activa en el DOM cuando los cálculos detectan que el progreso de la meta llegó al 100%.
+
+-El Gráfico de Gastos: La implementación y renderizado de la estructura visual de los egresos del período.
+
+-Mecanismo de Toggle para Cambio de Tema: La lógica de JavaScript encargada de escuchar el evento del switch, alternar el atributo data-theme en la etiqueta raíz del HTML (<html>) y actualizar de manera fluida las variables nativas de CSS (colores de fondos, fuentes y bordes).
 
 
 En cuanto al equipo, la división del trabajo fue planificada, pero no todas las partes estaban completamente desarrolladas al momento de realizar este informe, por lo que no puedo asegurar con precisión qué partes puede explicar cada una de mis compañeras.
