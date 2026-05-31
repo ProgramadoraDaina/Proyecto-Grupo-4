@@ -113,6 +113,8 @@ Daina:
 
 - La conexión general entre la lógica del sistema y la visualización de resultados en la interfaz.
 
+-La implementación de la barra lateral (sidebar) de la interfaz, incluyendo su comportamiento responsive. En dispositivos móviles se controla mediante un botón que permite abrirla y cerrarla.
+
 Camila:
 - El desarrollo y estilización de los paneles 'Agregar Movimiento' y 'Movimientos Recientes', la organización de los elementos visuales mediante CSS y la adaptación del diseño para que sea responsive.
 
@@ -132,7 +134,11 @@ En cuanto al equipo, la división del trabajo fue planificada, pero no todas las
 El objetivo del proyecto fue que cada integrante se encargue de una sección específica, de manera que cada una pudiera desarrollar su propia parte dentro del sistema.
 
 9.-¿Qué decisiones tomo el grupo sin depender de la IA?
-eeeeh..nose, ayuda...
+
+El grupo tomó varias decisiones de forma autónoma durante el desarrollo de MiniFinance. En primer lugar, organizamos la división de tareas, asignando a cada integrante una parte del proyecto.
+También decidimos la estructura del proyecto, separándolo en páginas como inicio, simulador y resumen, cada una con una función específica.
+Además, definimos el diseño de la interfaz, incluyendo el uso de menú lateral, botones, tarjetas y colores del modo oscuro/claro.
+Por otro lado, elegimos las funcionalidades principales, como registrar ingresos y gastos, calcular ahorro, fijar metas y mostrar resúmenes.
 
 10.-¿Hubo código sugerido por IA que descartaron? ¿Por qué?
 
