@@ -270,21 +270,26 @@ html body aside .panel-meta-box .form-meta-input input[type="number"] {
 }
 
 .btn-ver-todos {
-  background: transparent;
-  color: #22c55e;
-  border: 1px solid #22c55e;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--borde-meta-inputs);
+  color: var(--texto-meta-titles);
   padding: 8px 16px;
   border-radius: 8px;
+  font-weight: 500;
   cursor: pointer;
-  font-size: 14px;
-  transition: 0.3s;
+  font-size: 13px;
+  text-decoration: none; 
+  display: inline-block;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
 }
 
 .btn-ver-todos:hover {
-  background: #22c55e;
-  color: black;
+  background: rgba(255, 255, 255, 0.08);
+  color: #22c55e;
 }
-
+.btn-ver-todos:active {
+    transform: scale(0.96); 
+}
 /* ========================= 
    MOVIMIENTOS RECIENTES
 ========================= */
@@ -304,14 +309,26 @@ html body aside .panel-meta-box .form-meta-input input[type="number"] {
 }
 
 .categoria-icono {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-  background-size: contain;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-right: 12px;
+  border-radius: 12px;
+  background-size: 20px;
   background-position: center;
   background-repeat: no-repeat;
   vertical-align: middle;
+  transition: background-color 0.3s ease-in-out;
+}
+.movimiento.ingreso .categoria-icono {
+  background-color: rgb(166 187 174 / 14%);
+}
+
+/* Si la tarjeta es de GASTO, el fondo del icono adentro va a ser rojo suave */
+.movimiento.gasto .categoria-icono {
+  background-color: rgb(255 66 66 / 14%);
 }
 
 .categoria-sueldo {
@@ -337,6 +354,7 @@ html body aside .panel-meta-box .form-meta-input input[type="number"] {
 .categoria-icono.default {
   background-image: url("img/iconos_movimientos_recientes/sueldo.png");
 }
+
 
 .movimiento {
   background: var(--bg-inputs);
@@ -409,6 +427,7 @@ html[data-theme="light"] .movimiento-frecuencia {
   color: #64748b;
   text-align: right;
 }
+
 
 
 /* Sistema de variables para Switch*/

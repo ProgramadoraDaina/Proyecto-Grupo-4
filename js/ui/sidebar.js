@@ -2,6 +2,8 @@ export function inicializarSidebar() {
     const botonSidebar = document.getElementById('toggleButton');/*Busca el elemento con id "toggleButton*/
     const sidebar = document.getElementById('sidebar');
 
+    if (!botonSidebar) return;
+
     botonSidebar.addEventListener('click', function () {/*Cuando el usuario haga CLICK en el botonSidebar*/
         
         toggleEvents(sidebar, botonSidebar);/*hace que el sidebar se abra o cierre*/

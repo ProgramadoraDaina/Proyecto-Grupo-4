@@ -459,12 +459,73 @@ const paletaColores = {
     }
 }
 
+// configurar meta -------------------
+// abre y cierra el contenedor del menú desplegable
+window.abrirMenuMeta = function() {
+    const menu = document.getElementById("menuMetaDesplegable");
+    if (menu) {
+        menu.style.display = menu.style.display === "none" ? "block" : "none";
+    }
+};
+
+// muestra u oculta la caja de texto libre si eligen "Otro"
+window.controlarInputOtro = function() {
+    const selector = document.getElementById("metaCategoriaSel");
+    const inputOtro = document.getElementById("metaNombreOtro");
+    if (selector && inputOtro) {
+        inputOtro.style.display = selector.value === "Otro" ? "block" : "none";
+    }
+};
+
+window.guardarNombreMeta = function(event) {
+    if (event) event.preventDefault(); // Evita que se recargue la página
+
+    const selector = document.getElementById("metaCategoriaSel");
+    const inputOtro = document.getElementById("metaNombreOtro");
+    let nombreFinal = ""; 
+
+    if (selector) {
+        if (selector.value === "Otro") {
+            let textoUsuario = inputOtro ? inputOtro.value.trim() : "";
+            if (textoUsuario !== "") {
+                if (textoUsuario.length > 15) {
+                    textoUsuario = textoUsuario.substring(0, 15);
+                }
+                nombreFinal = textoUsuario;
+            } else {
+                nombreFinal = "para mi meta";
+            }
+        } else {
+            nombreFinal = selector.value;
+        }
+    }
+    
+  
+    localStorage.setItem("metaNombre", nombreFinal);
+
+    const txtNombre = document.getElementById("txt-meta-nombre");
+    if (txtNombre) txtNombre.textContent = nombreFinal;
+
+    document.getElementById("menuMetaDesplegable").style.display = "none";
+    if (inputOtro) inputOtro.value = "";
+
+    showMessage("Categoría de meta actualizada", "success");
+};
+
+
 window.agregarMovimiento = agregarMovimiento;
 window.guardarMeta = guardarMeta;
+window.guardarMetaNueva = window.guardarNombreMeta; // por las dudas 
 window.borrarTodo = borrarTodo;
 
 document.addEventListener("DOMContentLoaded", () => {
     inicializarSidebar();
     resaltarPaginaActual();
     inicializarUI();
+
+    const nombreGuardado = localStorage.getItem("metaNombre") || "";
+    const txtNombre = document.getElementById("txt-meta-nombre");
+    if (txtNombre && nombreGuardado) {
+        txtNombre.textContent = nombreGuardado;
+    }
 });

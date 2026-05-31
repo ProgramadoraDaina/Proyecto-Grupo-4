@@ -14,13 +14,7 @@
     <link rel="icon" href="resources/img/logo.png" sizes="any">
 </head>
 <body>
-    <header class="meta--header">
-                    <span class="meta-icon-design">◎</span>
-                    <h3>Meta de ahorro</h3>
-                <div class="toggleButton" id="toggleButton">
-                    <span class="line-Button"></span>
-                </div>
-                </header>
+
 <div class="layout">
 
         <aside class="sidebar" id="sidebar">
@@ -56,8 +50,12 @@
 <hr>
             
             <section class="panel-meta-box" id="tarjeta-meta-ahorro">
-                <article class="meta--body">
-                    <h4 id="txt-meta-nombre">Ahorrar para mi viaje</h4>
+                <header class="meta--header">
+                <span class="meta-icon-design">◎</span>
+                <h3>Meta de ahorro</h3>
+            </header>
+            <article class="meta--body">
+                    <h4>Ahorrar <span id="txt-meta-nombre"></span></h4>
                     <p class="monto-destacado-" id="metaTexto">$0</p>
                     
                     <div class="form-meta-input">
@@ -78,12 +76,26 @@
                     </div>
                 </article>
 
-                <footer>
-                    <button class="btn-ver-metas-" onclick="irAMetas()">
-                        Ver metas
-                    </button>
-                </footer>
-            </section>
+<footer>
+         <button onclick="abrirMenuMeta()">Configurar Meta</button>
+         </footer>
+         <div id="menuMetaDesplegable" style="display: none; margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid var(--borde-paneles);">
+         <form onsubmit="guardarNombreMeta(event);" style="display: flex; flex-direction: column; gap: 10px;">
+            <label style="font-size: 12px; color: var(--texto-secundario);">¿Para qué querés ahorrar?</label>
+            <select id="metaCategoriaSel" onchange="controlarInputOtro()" style="width: 100%; padding: 10px; border-radius: 8px; background: var(--bg-inputs); color: var(--texto-principal); border: 1px solid var(--borde-paneles);">
+                <option value="para mi viaje">✈️ para mi viaje</option>
+                <option value="para mi proyecto">💼 para mi proyecto</option>
+                <option value="para mi cumpleaños">🎂 para mi cumpleaños</option>
+                <option value="para cambiar un dispositivo">💻 para mi tecnología</option>
+                <option value="Otro">✏️ otro </option>
+            </select>
+
+            <input type="text" id="metaNombreOtro" maxlength="15" placeholder="Ej: para mi casa" style="display: none; width: 100%; padding: 10px; border-radius: 8px; background: var(--bg-inputs); color: var(--texto-principal); border: 1px solid var(--borde-paneles);">
+
+            <button type="submit" style="width: 100%; background: #22c55e; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold;">Confirmar Meta</button>
+        </form>
+    </div>
+</section>
             
             <section class="panel-control-tema" aria-label="Selector de tema visual">
                 <span id="icono-estado-tema" aria-hidden="true">☾</span>
@@ -171,14 +183,8 @@
         </main>
 
     </div>
-
-    
-    </main>
-  </div>
-  <script type="module" src="js/resumen.js"></script>
-
-    <div id="alertas"></div>
-
-    <script type="module" src="js/main.js"></script>
+<script type="module" src="js/resumen.js"></script>
+<div id="alertas"></div>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
