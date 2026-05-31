@@ -5,6 +5,7 @@ import { formatearNumero } from "./utils/formateo.js";
 
 import { actualizarCards } from "./ui/cards.js";
 import { inicializarSidebar, resaltarPaginaActual } from "./ui/sidebar.js";
+import { cargarMovimientosSesion, guardarMovimientosSesion, clearMovimientos } from "./storage.js";
 
 const btnIngreso = document.getElementById("btnIngreso");
 const btnGasto = document.getElementById("btnGasto");
@@ -13,29 +14,10 @@ const metaInput = document.getElementById("metaInput");
 const metaTexto = document.getElementById("metaTexto");
 const listaMovimientos = document.getElementById("listaMovimientos");
 const alertas = document.getElementById("alertas");
-const SESSION_KEY = "movimientosFinanzas";
 
 const finanzas = new Finanzas();
 
-function cargarMovimientosSesion() {
-    const datos = sessionStorage.getItem(SESSION_KEY);
-    if (!datos) return;
-    try {
-        const objeto = JSON.parse(datos);
-        finanzas.ingresos = Array.isArray(objeto.ingresos) ? objeto.ingresos : [];
-        finanzas.gastos = Array.isArray(objeto.gastos) ? objeto.gastos : [];
-    } catch (error) {
-        console.warn("No se pudo leer sessionStorage:", error);
-    }
-}
-
-function guardarMovimientosSesion() {
-    const datos = {
-        ingresos: finanzas.ingresos,
-        gastos: finanzas.gastos,
-    };
-    sessionStorage.setItem(SESSION_KEY, JSON.stringify(datos));
-}
+// Las operaciones sobre sessionStorage se delegan al módulo `js/storage.js`.
 
 function actualizarEncabezado() {
     const ingresos = finanzas.ingresos.reduce((acc, mov) => acc + Number(mov.monto || 0), 0);
@@ -156,7 +138,12 @@ function actualizarMetaUI() {
 }
 
 function inicializarUI() {
-    cargarMovimientosSesion();
+    // Cargar movimientos desde el storage centralizado
+    const datosSesion = cargarMovimientosSesion();
+    if (datosSesion) {
+        finanzas.ingresos = Array.isArray(datosSesion.ingresos) ? datosSesion.ingresos : [];
+        finanzas.gastos = Array.isArray(datosSesion.gastos) ? datosSesion.gastos : [];
+    }
     cargarMeta();
     actualizarEncabezado();
     actualizarMovimientos();
@@ -222,7 +209,7 @@ function agregarMovimiento() {
         finanzas.gastos.push(movimiento);
     }
 
-    guardarMovimientosSesion();
+        guardarMovimientosSesion({ ingresos: finanzas.ingresos, gastos: finanzas.gastos });
     actualizarEncabezado();
     actualizarMovimientos();
     calcularProgresoMetaNativa();  // re-calcula tu barra de progreso con el nuevo saldo
@@ -245,7 +232,7 @@ function guardarMeta() {
 function borrarTodo() {
     finanzas.ingresos = [];
     finanzas.gastos = [];
-    sessionStorage.removeItem(SESSION_KEY);
+        clearMovimientos();
     actualizarEncabezado();
     actualizarMovimientos();
     calcularProgresoMetaNativa();  
