@@ -510,6 +510,40 @@ html[data-theme="light"] .panel-meta-box {
   background-image: url("img/tasa.png"), radial-gradient(circle, var(--bg-paneles), #be1aff);
 }
 
+.panel-movimientos-completa {
+  width: calc(100% - 40px);
+  margin: 20px auto 40px;
+  max-width: 1200px;
+  padding: 25px;
+}
+
+.movimientos-listado {
+  margin-top: 16px;
+}
+
+.movimiento-categoria {
+  font-size: 14px;
+  color: var(--texto-principal);
+  font-weight: 700;
+}
+
+@media (max-width: 1040px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .layout > aside,
+  main {
+    width: 100%;
+    flex: none;
+  }
+
+  .panel-movimientos-completa {
+    width: calc(100% - 20px);
+    margin: 20px 10px 40px;
+  }
+}
+
 /*  Grafico de dona */
 .wrapper-dona-grafica {
     position: relative;

@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resumen Financiero - MiniFinance</title>
+    <title>MiniFinance - Resumen Financiero </title>
     <link rel="stylesheet" href="resources/style.css">
     <link rel="stylesheet" href="resources/sidebar/sidebar.css">
     <link rel="stylesheet" href="resources/sidebar/logo.css">
     <link rel="stylesheet" href="resources/sidebar/icono-sidebar.css">
     <link rel="stylesheet" href="resources/sidebar/toggleButton.css">
     <link rel="stylesheet" href="resources/footer.css">
+    <link rel="stylesheet" href="resources/style-resumen.css">
 </head>
 <body>
 <div class="layout">
@@ -124,7 +125,7 @@
             </section>
         </main>
 
-        <aside style="flex: 0 0 320px;">
+        <aside style="flex: 0 0 300px;">
 
 
             <section class="panel-meta-box" id="tarjeta-meta-ahorro">
@@ -145,6 +146,51 @@
         </aside>
 
     </div>
+
+    <section class="panel resumen-panel">
+        <p>Filtra tus movimientos por categoría, tipo o fecha. Ordena por fecha y revisa las fechas de cada movimiento.</p>
+
+        <div class="resumen-filtros">
+          <div class="filtro-group">
+            <label for="tipoFiltro">Tipo de movimiento</label>
+            <select id="tipoFiltro">
+              <option value="todos">Todos</option>
+              <option value="ingreso">Ingreso</option>
+              <option value="gasto">Gasto</option>
+            </select>
+          </div>
+
+          <div class="filtro-group">
+            <label for="categoriaFiltro">Categoría</label>
+            <select id="categoriaFiltro">
+              <option value="todos">Todas</option>
+              <option value="Ocio">Ocio</option>
+              <option value="Comida">Comida</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Sueldo">Sueldo</option>
+              <option value="Regalos">Regalos</option>
+            </select>
+          </div>
+
+          <div class="filtro-group">
+            <label for="orden">Ordenar por</label>
+            <select id="orden">
+              <option value="fecha_desc">Fecha (más reciente primero)</option>
+              <option value="fecha_asc">Fecha (más antiguo primero)</option>
+              <option value="monto_desc">Monto (mayor primero)</option>
+              <option value="monto_asc">Monto (menor primero)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="resumen-total" id="resumenTotal">Total visible: $0</div>
+
+        <div id="listaResumen"></div>
+        <a href="inicio.html" class="ver-mas">Volver</a>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="js/resumen.js"></script>
 
     <div id="alertas"></div>
 

@@ -1,0 +1,215 @@
+panel.resumen-panel {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(15,23,42,0.96), rgba(8,16,30,0.98));
+  border: 1px solid rgba(56,189,248,0.18);
+  border-radius: 28px;
+}
+
+.panel.resumen-panel p {
+  color: #cbd5e1;
+  margin-top: 0;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.resumen-filtros {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.filtro-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filtro-group label {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.filtro-group select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(148,163,184,0.22);
+  background: #07111f;
+  color: #f8fafc;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filtro-group select:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 4px rgba(56,189,248,0.12);
+}
+
+#listaResumen {
+  display: grid;
+  gap: 16px;
+}
+.resumen-total {
+  margin-bottom: 18px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(56,189,248,0.22);
+  background: rgba(15,23,42,0.9);
+  color: #e2e8f0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+.movimiento {
+  display: grid;
+  grid-template-columns: 56px 1fr 120px;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(148,163,184,0.12);
+  background: rgba(15,23,42,0.85);
+}
+
+.movimiento-icono {
+  font-size: 28px;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.movimiento.ingreso .movimiento-icono {
+  background-color: rgba(34,197,94,0.14);
+}
+
+.movimiento.gasto .movimiento-icono {
+  background-color: rgba(248,113,113,0.14);
+}
+
+/* Iconos de categoría */
+.movimiento-icono.categoria-comida {
+  background-image: url('../img/iconos_movimientos_recientes/comida.png');
+}
+
+.movimiento-icono.categoria-ocio {
+  background-image: url('../img/iconos_movimientos_recientes/ocio.png');
+}
+
+.movimiento-icono.categoria-regalos {
+  background-image: url('../img/iconos_movimientos_recientes/regalos.png');
+}
+
+.movimiento-icono.categoria-sueldo {
+  background-image: url('../img/iconos_movimientos_recientes/sueldo.png');
+}
+
+.movimiento-icono.categoria-transporte {
+  background-image: url('../img/iconos_movimientos_recientes/transporte.png');
+}
+
+.movimiento-info {
+  display: grid;
+  gap: 6px;
+}
+
+.movimiento-info h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.movimiento-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.movimiento-fecha {
+  color: #94a3b8;
+}
+
+.movimiento-monto {
+  text-align: right;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.movimiento.ingreso .movimiento-monto {
+  color: #4ade80;
+}
+
+.movimiento.gasto .movimiento-monto {
+  color: #f87171;
+}
+
+.ver-mas {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(56,189,248,0.35);
+  color: #38bdf8;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.movimiento-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #051125;
+}
+
+.movimiento-badge.ingreso {
+  background: #bbf7d0;
+}
+
+.movimiento-badge.gasto {
+  background: #fecaca;
+}
+
+.ver-mas:hover {
+  background: rgba(56,189,248,0.12);
+  color: #ffffff;
+}
+
+@media (max-width: 960px) {
+  .resumen-filtros {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .panel.resumen-panel {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .resumen-filtros {
+    grid-template-columns: 1fr;
+  }
+
+  .movimiento {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    text-align: left;
+  }
+
+  .movimiento-monto {
+    text-align: left;
+    margin-top: 12px;
+  }
+}

@@ -27,10 +27,16 @@ function actualizarEncabezado() {
     const ingresosEl = document.getElementById("ingresos");
     const gastosEl = document.getElementById("gastos");
     const saldoEl = document.getElementById("saldo");
+    const resumenIngresos = document.getElementById("resumen-ingresos");
+    const resumenGastos = document.getElementById("resumen-gastos");
+    const resumenBalance = document.getElementById("resumen-balance");
 
     if (ingresosEl) ingresosEl.textContent = formatearNumero(ingresos);
     if (gastosEl) gastosEl.textContent = formatearNumero(gastos);
     if (saldoEl) saldoEl.textContent = formatearNumero(saldo);
+    if (resumenIngresos) resumenIngresos.textContent = `$${formatearNumero(ingresos)}`;
+    if (resumenGastos) resumenGastos.textContent = `$${formatearNumero(gastos)}`;
+    if (resumenBalance) resumenBalance.textContent = `$${formatearNumero(saldo)}`;
 }
 
 function formatearFecha(timestamp) {
@@ -75,8 +81,8 @@ function actualizarMovimientos() {
     // Ordenar por timestamp descendente (más reciente primero)
     movimientosUnificados.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
 
-    // Tomar solo los últimos 5 movimientos recientes
-    const movimientosRecientes = movimientosUnificados.slice(0, 5);
+    // Mostrar todos los movimientos agregados
+    const movimientosRecientes = movimientosUnificados;
 
     // Agrupar por categoría
     const movimientosPorCategoria = {};
@@ -112,7 +118,10 @@ function actualizarMovimientos() {
                 <div class="movimiento-contenido">
                     <div class="movimiento-info">
                         <strong class="categoria-icono ${categoriaClase}"></strong>
-                        <span class="movimiento-frecuencia">${mov.frecuencia}</span>
+                        <div>
+                            <div class="movimiento-categoria">${mov.categoria}</div>
+                            <span class="movimiento-frecuencia">${mov.tipo} • ${mov.frecuencia}</span>
+                        </div>
                     </div>
                     <div class="movimiento-monto ${colorClase}">
                         ${simbolo}$${formatearNumero(mov.monto)}
