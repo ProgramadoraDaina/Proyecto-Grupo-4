@@ -12,7 +12,18 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+
+/* Estilos para el icono de Resumen */
+.icono-resumen {
+    width: 20px;  /* Ajusta el tamaño según tu diseño */
+    height: 20px; /* Ajusta el tamaño según tu diseño */
+    background-image: url("../img/resumen.png"); /* Ruta local recomendada */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
 .icono-inicio,
-.icono-simulador {
+.icono-simulador,
+.icono-resumen {
   display: inline-block;
 }

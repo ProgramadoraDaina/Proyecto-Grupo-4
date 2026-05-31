@@ -101,7 +101,7 @@ En general, este proyecto me permitió no solo mejorar en programación, sino ta
 
 8. ¿Qué partes del código puede explicar cada integrante?
 
-En mi caso, las partes del código en las que trabajé y que puedo identificar con claridad son:
+Daina:
 
 - La lógica de cálculo de ingresos y gastos mensuales (archivo `calculo.js`), especialmente la conversión de valores según la frecuencia (mensual, semanal o único).
 
@@ -113,9 +113,19 @@ En mi caso, las partes del código en las que trabajé y que puedo identificar c
 
 - La conexión general entre la lógica del sistema y la visualización de resultados en la interfaz.
 
-No participé en la parte de ingreso de datos ni en la lógica asociada al formulario, por lo que no podría explicar en detalle cómo funciona esa sección.
+Camila:
+- El desarrollo y estilización de los paneles 'Agregar Movimiento' y 'Movimientos Recientes', la organización de los elementos visuales mediante CSS y la adaptación del diseño para que sea responsive.
 
-Además, me cuesta explicar el código de forma detallada paso a paso. Si bien puedo reconocer qué hace cada parte y cómo se relacionan entre sí, me resulta difícil describir toda la lógica interna sin trabarme o confundirme.
+- En la incorporación de iconos según la categoría de cada movimiento y en las mejoras visuales aplicadas a las distintas secciones de la aplicación.
+
+- Las alertas de confirmación de que un movimiento fue guardado correctamente o la notificación de errores cuando los datos ingresados no son válidos, por ejemplo, al ingresar un monto incorrecto.
+
+- El uso de Session Storage para almacenar temporalmente los datos en el navegador, así como la recuperación y actualización de esa información dentro de la aplicación.
+
+- La panel de historial de movimientos, incluyendo la visualización completa de ingresos y egresos registrados  las funcionalidades de ordenamiento y filtrado de movimientos según criterios como fecha, monto o tipo de operación. 
+
+Angela:
+
 
 En cuanto al equipo, la división del trabajo fue planificada, pero no todas las partes estaban completamente desarrolladas al momento de realizar este informe, por lo que no puedo asegurar con precisión qué partes puede explicar cada una de mis compañeras.
 
