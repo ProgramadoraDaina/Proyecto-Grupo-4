@@ -108,23 +108,23 @@
 
 /* Iconos de categoría */
 .movimiento-icono.categoria-comida {
-  background-image: url('../img/iconos_movimientos_recientes/comida.png');
+  background-image: url('img/iconos_movimientos_recientes/comida.png');
 }
 
 .movimiento-icono.categoria-ocio {
-  background-image: url('../img/iconos_movimientos_recientes/ocio.png');
+  background-image: url('img/iconos_movimientos_recientes/ocio.png');
 }
 
 .movimiento-icono.categoria-regalos {
-  background-image: url('../img/iconos_movimientos_recientes/regalos.png');
+  background-image: url('img/iconos_movimientos_recientes/regalos.png');
 }
 
 .movimiento-icono.categoria-sueldo {
-  background-image: url('../img/iconos_movimientos_recientes/sueldo.png');
+  background-image: url('img/iconos_movimientos_recientes/sueldo.png');
 }
 
 .movimiento-icono.categoria-transporte {
-  background-image: url('../img/iconos_movimientos_recientes/transporte.png');
+  background-image: url('img/iconos_movimientos_recientes/transporte.png');
 }
 
 .movimiento-info {

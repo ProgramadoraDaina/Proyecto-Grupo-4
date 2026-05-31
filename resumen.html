@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiniFinance - Resumen Financiero </title>
     <link rel="stylesheet" href="resources/style.css">
+    <link rel="stylesheet" href="resources/style-resumen.css">
     <link rel="stylesheet" href="resources/sidebar/sidebar.css">
     <link rel="stylesheet" href="resources/sidebar/logo.css">
     <link rel="stylesheet" href="resources/sidebar/icono-sidebar.css">
     <link rel="stylesheet" href="resources/sidebar/toggleButton.css">
     <link rel="stylesheet" href="resources/footer.css">
-    <link rel="stylesheet" href="resources/style-resumen.css">
 </head>
 <body>
 <div class="layout">
@@ -91,7 +91,7 @@
             </section>
         </aside>
         <main>
-            <section class="contenedor-movimientos">
+            <section class="contenedor-movimientos" >
                 
                 <article class="panel">
                     <h2>Totales del Período</h2>
@@ -123,11 +123,7 @@
                 </article>
 
             </section>
-        </main>
-
-    </div>
-
-    <section class="panel resumen-panel">
+            <section class="panel resumen-panel" style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px;">
         <p>Filtra tus movimientos por categoría, tipo o fecha. Ordena por fecha y revisa las fechas de cada movimiento.</p>
 
         <div class="resumen-filtros">
@@ -168,6 +164,11 @@
         <div id="listaResumen"></div>
         <a href="inicio.html" class="ver-mas">Volver</a>
       </section>
+        </main>
+
+    </div>
+
+    
     </main>
   </div>
   <script type="module" src="js/resumen.js"></script>

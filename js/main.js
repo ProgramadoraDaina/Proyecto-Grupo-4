@@ -82,7 +82,7 @@ function actualizarMovimientos() {
     movimientosUnificados.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
 
     // Mostrar todos los movimientos agregados
-    const movimientosRecientes = movimientosUnificados;
+    const movimientosRecientes = movimientosUnificados.slice(0,5);
 
     // Agrupar por categoría
     const movimientosPorCategoria = {};
