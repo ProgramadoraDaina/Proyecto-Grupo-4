@@ -1,4 +1,7 @@
-Alumna:Daina Gimena Paucar
+Alumnas:
+- Daina Gimena Paucar
+- Camila Maria Ferro
+- Angela Lucero Álvarez
 
 1.-¿Qué herramientas de IA utilizaron?
 
@@ -10,7 +13,7 @@ Angie utilizó Gemini como apoyo para la generación de contenido y consulta de 
 
 
 2.-¿Para qué las utilizaron?
-
+- Daina:
 Utilicé el modelo de lenguaje no solo para resolver dudas, sino también como una herramienta activa
 para crear e implementar partes del proyecto.
 
@@ -25,10 +28,13 @@ En particular, la utilicé para:
 
 A partir de esas sugerencias, fui adaptando el código según lo que necesitaba, modificándolo y asegurándome de entender cómo funcionaba antes de integrarlo.
 
+-Camila: Utilice agentes como apoyo durante el desarrollo del proyecto. Me ayudó a resolver problemas específicos que parecian complejos, entender errores que aparecían en el código para poder arreglarlos y  obtener sugerencias para implementar nuevas características. Tambien utilicé
+IA para entender algunos errores de git que surgian al momento de realizar los merge.
+
 3.-¿Qué partes del proyecto fueron asistidas por IA?
 
 Las partes del proyecto que fueron asistidas por IA incluyen principalmente la creación e implementación de la lógica funcional del sistema.
-
+- Daina:
 En particular, utilicé IA para:
 
 -Desarrollar funciones que calculan ingresos, gastos y ahorro mensual.
@@ -38,6 +44,10 @@ En particular, utilicé IA para:
 -Implementar la visualización de datos mediante gráficos utilizando Chart.js.
 
 Si bien la IA me ayudo a generar estas cosas, todas las partes fueron adaptadas, revisadas y comprendidas por mi parte antes de integrarlas, asegurandome de que funcionaran correctamente dentro del proyecto
+
+- Camila:
+La IA asistió principalmente la implementación y validación del formulario de movimientos.
+Tambien en el manejo de datos mediante sessionStorage, en la generación de alertas de validación y confirmación de acciones. Ajustes de estilos CSS, diseño responsive y distribución de componentes.
 
 4.-¿Qué prompts o consultas me resultaron más útiles?
 
@@ -50,7 +60,7 @@ Los prompts más útiles fueron:
 - “Quiero graficar la evolución del ahorro en el tiempo usando Chart.js. Tengo un array de meses y otro con el ahorro acumulado. ¿Cómo puedo configurar un gráfico de línea para mostrar esa información?”
 
 5.-¿Qué respuestas de la IA tuve que corregir?
-
+- Daina:
 Durante el desarrollo hubo varias situaciones en las que tuve que corregir o ajustar las respuestas de la IA.Peeero definitivamente el mas importante fue al intentar hacer responsive la parte del simulador, especialmente con la implementación de la sidebar.
 
 En ese momento, la IA me sugirió distintas """soluciones""" que implicaban modificar estilos, reorganizar la estructura o agregar lógica adicional, lo que me llevó a andar dando vueltas con varias alternativas sin resolver el problema de forma por ningun lado.
@@ -61,8 +71,12 @@ Una vez agregada esa línea, el diseño responsive comenzó a funcionar correcta
 
 Esta experiencia me hizo entender que la IA puede proponer soluciones válidas, pero no siempre identifica bien el problema principal, por lo que es necesario analizar en cada caso lo que falla y verificar primero los aspectos básicos antes de aplicar cambios más complejos.
 
-6.-¿Qué problemas tuve al trabajar con IA?
+- Camila:
+En algunos casos (como el del formulario de historial de movimientos) fue necesario adaptar el código sugerido para que funcionara con la estructura específica del proyecto. También hubo respuestas que asumían una organización de archivos distinta a la que utilizábamos o que no contemplaban ciertas validaciones necesarias. Por eso siempre fue importante revisar, probar y ajustar las soluciones antes de incorporarlas al código final y obtener el resultado 
+esperado por todas. 
 
+6.-¿Qué problemas tuve al trabajar con IA?
+- Daina:
 Al trabajar con IA me encontré con varios problemas concretos durante el desarrollo del proyecto.
 
 Uno de los principales fue que no siempre lograba transmitir bien el contexto(por culpa de no haber podido utilizar un agente). Cuando las consultas eran demasiado generales o no incluían toda la información, la IA respondía con soluciones que no encajaban con lo que ya tenía desarrollado, lo que me obligaba a reformular los prompts hasta obtener algo útil.
@@ -77,8 +91,22 @@ En esas situaciones, opté por hacer implementaciones provisorias o “parches�
 
 En general, muchas de las soluciones requerían ser ajustadas para que se adaptaran bien al proyecto, tanto a nivel técnico como a la organización del trabajo en equipo.
 
+- Camila: 
+
+Al trabajar con  agentes de IA encontré algunas dificultades relacionadas principalmente con la adaptación de las respuestas al contexto específico de nuestro proyecto. En varias ocasiones las soluciones propuestas eran correctas de forma general, pero no contemplaban la estructura de archivos, las funciones o la lógica que ya habíamos implementado, por lo que fue necesario modificarlas antes de poder utilizarlas, me gustaba el plan de accion que teniamos desde un principio.
+
+Otro desafío fue la necesidad de formular consultas de manera precisa. Cuando la descripción del problema era demasiado general, no daba mas contexto o no aclaraba que archivos crear y cuales no, las respuestas obtenidas no siempre resolvían exactamente la situación que enfrentábamos. 
+
+Por eso fue importante aprender a proporcionar contexto, ejemplos de código y mensajes de error para obtener resultados más útiles.
+
+Además, en algunas etapas del desarrollo utilicé un agente con permisos para realizar modificaciones directamente sobre los archivos del proyecto. Si bien esto permitió automatizar ciertas tareas y acelerar el trabajo, en ocasiones los cambios realizados eran demasiado amplios o afectaban partes del código que funcionaban correctamente y luego quedaban muy anidados y era dificil separarlos o reutilizarlos para otras funcionalidades. Esto provocaba que el proyecto dejara de comportarse como se esperaba y que resultara difícil identificar exactamente qué modificaciones habían causado el problema, obligándome a revisar cambios, utilizar Git para comparar versiones y volver a estados funcionales del código.
+
+
+Estas experiencias me ayudaron a comprender que los agentes son una gran herramienta pero que sus propuestas deben ser revisadas cuidadosamente y validadas mediante pruebas antes de incorporarlas definitivamente al proyecto. También reforzaron la importancia de utilizar herramientas de control de versiones para poder recuperar cambios y mantener la estabilidad del desarrollo.
+
 7.-¿Qué aprendí durante el proceso?
 
+- Daina:
 Durante el desarrollo del proyecto aprendí varias cosas tanto a nivel técnico como en la forma de trabajar.
 
 En cuanto a programación, aprendí a organizar mejor el código utilizando módulos en JavaScript, separando responsabilidades entre la lógica de cálculo, la simulación y la interfaz. También entendí mejor cómo trabajar con datos dinámicos y cómo reflejarlos en el DOM de manera actualizada.
@@ -99,9 +127,17 @@ También aprendí a trabajar considerando dependencias entre tareas, realizando 
 
 En general, este proyecto me permitió no solo mejorar en programación, sino también entender mejor cómo planificar, organizar y coordinar el trabajo en equipo en un entorno real.
 
+- Camila:
+ 
+Personalmente durante el desarrollo del proyecto no solo adquirí conocimientos técnicos, sino también habilidades fundamentales para el trabajo con mi equipo. Aprendí a comunicar ideas y problemas de manera clara con mis compañeras, a coordinar tareas y a colaborar para integrar distintas partes del sistema en una pagina funciona (cosa que antes al trabajar sola no pasaba, resolvia los problemas sola o con IA, acá conté con el apoyo de mis compañeras).
+
+Además, desarrollé una mayor capacidad para analizar errores, tengo una vision mas critica, buscar soluciones y tomar decisiones en conjunto cuando surgían dificultades. También fortalecí mis conocimientos en el uso de Git y GitHub, aprendiendo a trabajar con ramas, realizar commits descriptivos, resolver conflictos de integración y mantener un flujo de trabajo colaborativo. Estas herramientas fueron esenciales para coordinar el trabajo entre las integrantes del grupo y llevar un seguimiento ordenado de los cambios realizados.
+
+Por otro lado, mejoré mis habilidades de resolución de problemas, ya que muchas veces fue necesario investigar errores, probar distintas alternativas y adaptar las soluciones propuestas por la IA o encontradas en documentación. Este proceso me ayudó a desarrollar una actitud más crítica frente al código y a comprender mejor cómo funcionan las herramientas y tecnologías utilizadas. En general, el proyecto me permitió ganar experiencia tanto en aspectos técnicos como en competencias de trabajo colaborativo, organización y aprendizaje autónomo.
+
 8. ¿Qué partes del código puede explicar cada integrante?
 
-Daina:
+- Daina:
 
 - La lógica de cálculo de ingresos y gastos mensuales (archivo `calculo.js`), especialmente la conversión de valores según la frecuencia (mensual, semanal o único).
 
@@ -115,7 +151,7 @@ Daina:
 
 -La implementación de la barra lateral (sidebar) de la interfaz, incluyendo su comportamiento responsive. En dispositivos móviles se controla mediante un botón que permite abrirla y cerrarla.
 
-Camila:
+- Camila:
 - El desarrollo y estilización de los paneles 'Agregar Movimiento' y 'Movimientos Recientes', la organización de los elementos visuales mediante CSS y la adaptación del diseño para que sea responsive.
 
 - En la incorporación de iconos según la categoría de cada movimiento y en las mejoras visuales aplicadas a las distintas secciones de la aplicación.
